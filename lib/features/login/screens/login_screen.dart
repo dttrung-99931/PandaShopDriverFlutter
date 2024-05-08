@@ -1,7 +1,7 @@
-import 'package:base_flutter_getx/config/assets/assets.dart';
-import 'package:base_flutter_getx/core/constants/diemsions/dimensions.dart';
-import 'package:base_flutter_getx/core/constants/themes.dart';
-import 'package:base_flutter_getx/shared/widgets/loading_widget.dart';
+import 'package:panshop_driver/config/assets/assets.dart';
+import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
+import 'package:panshop_driver/core/constants/themes.dart';
+import 'package:panshop_driver/shared/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
@@ -63,9 +63,7 @@ class LoginScreen extends BaseGetWidget<LoginController> {
                                 passwordController.text,
                               );
                             },
-                      child: controller.isLoading
-                          ? const LoadingWidget()
-                          : const Text('Login'),
+                      child: controller.isLoading ? const LoadingWidget() : const Text('Login'),
                     );
                   }),
                 ),

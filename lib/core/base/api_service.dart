@@ -1,20 +1,19 @@
-import 'package:base_flutter_getx/core/base/base_model.dart';
-import 'package:base_flutter_getx/core/constants/constants.dart';
-import 'package:base_flutter_getx/core/error/app_error.dart';
-import 'package:base_flutter_getx/core/error/network_error.dart';
+import 'package:panshop_driver/core/base/base_model.dart';
+import 'package:panshop_driver/core/constants/constants.dart';
+import 'package:panshop_driver/core/error/app_error.dart';
+import 'package:panshop_driver/core/error/network_error.dart';
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import '../error/exceptions/no_internet.dart';
 
 /// Base service class for handling API calls
-abstract class ApiService extends GetConnect implements GetxService{
+abstract class ApiService extends GetConnect implements GetxService {
   ApiService() {
     // TODO: get from config
     baseUrl = 'https://localhost:5001';
     allowAutoSignedCert = true;
   }
 
-  
   /// Http Get method
   ///
   /// throw [NoInternetException] if [requireNetwrok] = true (defualt = true)

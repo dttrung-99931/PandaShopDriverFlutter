@@ -1,5 +1,4 @@
-
-import 'package:base_flutter_getx/core/constants/diemsions/dimensions.dart';
+import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class LoadingWidget extends StatelessWidget {

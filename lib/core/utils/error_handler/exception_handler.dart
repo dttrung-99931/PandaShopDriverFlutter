@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:base_flutter_getx/core/error/exceptions/no_internet.dart';
-import 'package:base_flutter_getx/core/utils/utils.dart';
+import 'package:panshop_driver/core/error/exceptions/no_internet.dart';
+import 'package:panshop_driver/core/utils/utils.dart';
 
 import 'error_report_service.dart';
 
@@ -21,7 +21,7 @@ class ExceptionHandler {
       logd('No internet exception');
     } else {
       logd('Unknown exception $exception');
-    } 
+    }
     reportError(exception, stackTrace);
   }
 

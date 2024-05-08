@@ -1,5 +1,5 @@
-import 'package:base_flutter_getx/core/translation/app_translation.dart';
-import 'package:base_flutter_getx/shared/services/storage_service.dart';
+import 'package:panshop_driver/core/translation/app_translation.dart';
+import 'package:panshop_driver/shared/services/storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +13,7 @@ class SettingController extends BaseController {
   Locale get currentLocale => _currentLocale;
 
   static Future<SettingController> create() async {
-    var settingController =  SettingController._();
+    var settingController = SettingController._();
     await settingController.onInit();
     return settingController;
   }
@@ -24,7 +24,7 @@ class SettingController extends BaseController {
     super.onInit();
   }
 
-  /// Init current langage by language code stored in SharedPreferences. 
+  /// Init current langage by language code stored in SharedPreferences.
   /// If there's no stored lanaguage code, then set default language
   Future<void> _initCurrentLanguage() async {
     String langCode = _storage.languageCode ?? AppTranslation.getDefaultLocale().languageCode;

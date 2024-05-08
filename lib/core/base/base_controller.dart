@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:base_flutter_getx/core/error/app_error.dart';
+import 'package:panshop_driver/core/error/app_error.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +20,12 @@ class BaseController extends GetxController {
     _subscriptions.add(notifier.listen(onChanged));
   }
 
-  Future<void> showSnackbar(String msg)  async {
-    await Get.snackbar(msg, msg,  colorText: Colors.black,).future;
+  Future<void> showSnackbar(String msg) async {
+    await Get.snackbar(
+      msg,
+      msg,
+      colorText: Colors.black,
+    ).future;
   }
 
   Future<void> handleServiceResult<Dto, Model>({
@@ -44,13 +48,11 @@ class BaseController extends GetxController {
     showSnackbar(appError.message ?? 'Sth went wrong');
   }
 
-    @override
+  @override
   void dispose() {
     for (StreamSubscription element in _subscriptions) {
       element.cancel();
     }
     super.dispose();
   }
-
-
 }

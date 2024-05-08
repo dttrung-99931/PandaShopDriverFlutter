@@ -1,4 +1,4 @@
-import 'package:base_flutter_getx/features/home/home_controller.dart';
+import 'package:panshop_driver/features/home/home_controller.dart';
 import 'package:get/get.dart';
 import '../../config/routes.dart';
 import 'home_screen.dart';

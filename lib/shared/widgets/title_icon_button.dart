@@ -1,10 +1,10 @@
-import 'package:base_flutter_getx/core/constants/colors.dart';
-import 'package:base_flutter_getx/core/constants/diemsions/dimensions.dart';
-import 'package:base_flutter_getx/core/constants/themes.dart';
+import 'package:panshop_driver/core/constants/colors.dart';
+import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
+import 'package:panshop_driver/core/constants/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-/// Composed buttton with icon, title 
+/// Composed buttton with icon, title
 class TitleIconButton extends StatelessWidget {
   final IconData? iconData;
   final Function() onPressed;
@@ -15,19 +15,19 @@ class TitleIconButton extends StatelessWidget {
   final bool expanded;
   final double iconAndTitleSpace;
 
-  TitleIconButton({super.key, 
+  TitleIconButton({
+    super.key,
     this.iconData,
     required this.title,
     required this.onPressed,
     this.color = AppColors.primary,
     this.expanded = false,
-    double? iconSize ,
+    double? iconSize,
     EdgeInsets? padding,
     double? iconAndTitleSpace,
-  }): 
-  iconAndTitleSpace = iconAndTitleSpace ?? w8,
-  iconSize  = iconSize ?? s20,
-  padding = padding ?? EdgeInsets.all(s4);
+  })  : iconAndTitleSpace = iconAndTitleSpace ?? w8,
+        iconSize = iconSize ?? s20,
+        padding = padding ?? EdgeInsets.all(s4);
 
   @override
   Widget build(BuildContext context) {

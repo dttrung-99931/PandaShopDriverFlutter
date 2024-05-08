@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:base_flutter_getx/core/base/base_get_widget.dart';
-import 'package:base_flutter_getx/config/routes.dart';
-import 'package:base_flutter_getx/core/constants/themes.dart';
-import 'package:base_flutter_getx/features/login/login_route.dart';
-import 'package:base_flutter_getx/features/settings/controller.dart';
-import 'package:base_flutter_getx/core/translation/app_translation.dart';
+import 'package:panshop_driver/core/base/base_get_widget.dart';
+import 'package:panshop_driver/config/routes.dart';
+import 'package:panshop_driver/core/constants/themes.dart';
+import 'package:panshop_driver/features/login/login_route.dart';
+import 'package:panshop_driver/features/settings/controller.dart';
+import 'package:panshop_driver/core/translation/app_translation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

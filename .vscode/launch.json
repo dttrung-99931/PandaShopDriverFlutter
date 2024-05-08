@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "base_flutter_getx",
+            "name": "panshop_driver",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "base_flutter_getx (profile mode)",
+            "name": "panshop_driver (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "base_flutter_getx (release mode)",
+            "name": "panshop_driver (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

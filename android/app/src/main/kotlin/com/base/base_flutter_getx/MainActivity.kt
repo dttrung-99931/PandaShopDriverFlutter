@@ -1,4 +1,4 @@
-package com.base.base_flutter_getx
+package com.base.panshop_driver
 
 import io.flutter.embedding.android.FlutterActivity
 

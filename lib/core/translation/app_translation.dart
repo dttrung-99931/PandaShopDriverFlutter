@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:base_flutter_getx/core/translation/vi.dart';
+import 'package:panshop_driver/core/translation/vi.dart';
 import 'package:get/get.dart';
 
 import 'en.dart';
@@ -27,7 +27,6 @@ class AppTranslation extends Translations {
         ? localeOf(Get.deviceLocale!.languageCode) ?? supportedLocales.first
         : supportedLocales.first;
   }
-
 
   static void changeLocale(Locale locale) {
     Get.updateLocale(locale);
