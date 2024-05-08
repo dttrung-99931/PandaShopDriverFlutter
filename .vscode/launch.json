@@ -5,21 +5,28 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "panshop_driver",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "panshop_driver (profile mode)",
+            "name": "Dev",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "debug",
+            "preLaunchTask": "reverse-tcp",
+            "program": "lib/main.dart"
         },
         {
-            "name": "panshop_driver (release mode)",
+            "name": "Dev",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "debug",
+            "preLaunchTask": "reverse-tcp",
+            "program": "lib/main_dev.dart"
+        },
+        {
+            "name": "Dev home",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "preLaunchTask": "reverse-tcp-home",
+            "program": "lib/main_dev_home.dart"
         }
     ]
 }

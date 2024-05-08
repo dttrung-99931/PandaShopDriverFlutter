@@ -8,9 +8,8 @@ void main() async {
 }
 
 void configDev() {
-  // TODO
   AppConfig.set(
-    apiUrl: '',
-    flavor: AppFlavor.production,
+    apiUrl: 'http://localhost:44444',
+    flavor: AppFlavor.dev,
   );
 }
