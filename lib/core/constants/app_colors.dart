@@ -14,4 +14,8 @@ class AppColors {
   static const white = Colors.white;
   static final whiteLight = Colors.white.withOpacity(0.8);
   static const hint = Color(0xFF999999);
+  static const green2 = Color(0xFF51C17D);
+  static const red = Color(0xFFFC6356);
+  static const transparent = Colors.transparent;
+
 }

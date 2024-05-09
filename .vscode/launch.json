@@ -5,11 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Dev",
+            "name": "Production",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
-            "preLaunchTask": "reverse-tcp",
             "program": "lib/main.dart"
         },
         {
@@ -27,6 +26,14 @@
             "flutterMode": "debug",
             "preLaunchTask": "reverse-tcp-home",
             "program": "lib/main_dev_home.dart"
+        },
+        {
+            "name": "Dev home wifi",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "preLaunchTask": "reverse-tcp-home",
+            "program": "lib/main_dev_home_wifi.dart"
         }
     ]
 }

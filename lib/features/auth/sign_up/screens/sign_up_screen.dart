@@ -6,8 +6,9 @@ import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
 import 'package:panshop_driver/core/constants/themes.dart';
 import 'package:panshop_driver/core/utils/extension/ui_extensions.dart';
 import 'package:panshop_driver/features/auth/login/screens/login_screen.dart';
+import 'package:panshop_driver/features/auth/sign_up/services/dtos/sign_up_request.dart';
 import 'package:panshop_driver/shared/widgets/common/text_input.dart';
-import 'package:panshop_driver/shared/widgets/loading_widget.dart';
+import 'package:panshop_driver/shared/widgets/common/loading_widget.dart';
 
 import '../../../../core/base/base_get_widget.dart';
 import '../controllers/sign_up_controller.dart';
@@ -73,9 +74,8 @@ class SignUpScreen extends BaseGetWidget<SignUpController> {
                         onPressed: controller.isLoading
                             ? null
                             : () {
-                                controller.login(
-                                  phoneController.text,
-                                  passwordController.text,
+                                controller.signUp(
+                                  SignUpRequestDto(phone: phoneController.text, password: passwordController.text,)
                                 );
                               },
                         child: controller.isLoading

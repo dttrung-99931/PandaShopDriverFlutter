@@ -6,7 +6,7 @@ import 'package:panshop_driver/core/constants/themes.dart';
 import 'package:panshop_driver/core/utils/extension/ui_extensions.dart';
 import 'package:panshop_driver/features/auth/sign_up/screens/sign_up_screen.dart';
 import 'package:panshop_driver/shared/widgets/common/text_input.dart';
-import 'package:panshop_driver/shared/widgets/loading_widget.dart';
+import 'package:panshop_driver/shared/widgets/common/loading_widget.dart';
 
 import '../../../../core/base/base_get_widget.dart';
 import '../controllers/login_controller.dart';
@@ -79,7 +79,7 @@ class LoginScreen extends BaseGetWidget<LoginController> {
                     onPressed: () {
                       Get.offNamed(SignUpScreen.route);
                     },
-                    child: const Text('Đăng ký giao hàng'),
+                    child: const Text('Đăng ký làm shipper'),
                   ),
                   h96sb,
                 ],

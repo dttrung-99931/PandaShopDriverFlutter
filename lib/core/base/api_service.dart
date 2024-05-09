@@ -1,3 +1,4 @@
+import 'package:panshop_driver/config/app_config.dart';
 import 'package:panshop_driver/core/base/base_model.dart';
 import 'package:panshop_driver/core/constants/constants.dart';
 import 'package:panshop_driver/core/error/app_error.dart';
@@ -10,7 +11,7 @@ import '../error/exceptions/no_internet.dart';
 abstract class ApiService extends GetConnect implements GetxService {
   ApiService() {
     // TODO: get from config
-    baseUrl = 'https://localhost:5001';
+    baseUrl = AppConfig.config.apiUrl;
     allowAutoSignedCert = true;
   }
 

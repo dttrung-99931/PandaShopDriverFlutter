@@ -1,10 +1,11 @@
 import 'dart:convert';
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-class LoginRequestDto {
+class SignUpRequestDto {
   final String phone; 
   final String password; 
-  LoginRequestDto({
+  // TODO: add more info fields
+  SignUpRequestDto({
     required this.phone,
     required this.password,
   });
@@ -16,8 +17,8 @@ class LoginRequestDto {
     };
   }
 
-  factory LoginRequestDto.fromMap(Map<String, dynamic> map) {
-    return LoginRequestDto(
+  factory SignUpRequestDto.fromMap(Map<String, dynamic> map) {
+    return SignUpRequestDto(
       phone: map['phone'] as String,
       password: map['password'] as String,
     );
@@ -25,5 +26,5 @@ class LoginRequestDto {
 
   String toJson() => json.encode(toMap());
 
-  factory LoginRequestDto.fromJson(String source) => LoginRequestDto.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory SignUpRequestDto.fromJson(String source) => SignUpRequestDto.fromMap(json.decode(source) as Map<String, dynamic>);
 }

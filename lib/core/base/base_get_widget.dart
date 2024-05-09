@@ -1,4 +1,4 @@
-import 'package:panshop_driver/shared/widgets/loading_widget.dart';
+import 'package:panshop_driver/shared/widgets/common/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
