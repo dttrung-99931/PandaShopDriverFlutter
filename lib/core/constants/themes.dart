@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_late
 
-import 'package:panshop_driver/core/constants/colors.dart';
+import 'package:panshop_driver/core/constants/app_colors.dart';
 import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,46 +16,38 @@ ThemeData buildTheme(BuildContext appContext) {
     textTheme: Theme.of(appContext).textTheme.copyWith(
           titleLarge: TextStyle(
             fontSize: fz32,
-            fontWeight: FontWeight.w600,
             color: AppColors.black,
           ),
           titleMedium: TextStyle(
             fontSize: fz24,
-            fontWeight: FontWeight.w600,
             color: AppColors.black,
           ),
           titleSmall: TextStyle(
             fontSize: fz20,
-            fontWeight: FontWeight.w600,
             color: AppColors.black,
           ),
 
           // Contennt
           bodyLarge: TextStyle(
             fontSize: fz18,
-            fontWeight: FontWeight.w600,
             color: AppColors.black,
           ),
           bodyMedium: TextStyle(
             fontSize: fz16,
-            fontWeight: FontWeight.w600,
             color: AppColors.black,
           ),
           bodySmall: TextStyle(
             fontSize: fz14,
-            fontWeight: FontWeight.w600,
             color: AppColors.black,
           ),
 
           /// Lable
           labelMedium: TextStyle(
             fontSize: fz12,
-            fontWeight: FontWeight.w600,
           ),
 
           labelSmall: TextStyle(
             fontSize: fz10,
-            fontWeight: FontWeight.w600,
           ),
         ),
   );

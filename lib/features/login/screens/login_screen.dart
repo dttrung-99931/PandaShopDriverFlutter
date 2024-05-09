@@ -1,9 +1,11 @@
-import 'package:panshop_driver/config/assets/assets.dart';
-import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
-import 'package:panshop_driver/core/constants/themes.dart';
-import 'package:panshop_driver/shared/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:panshop_driver/core/constants/app_colors.dart';
+import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
+import 'package:panshop_driver/core/constants/themes.dart';
+import 'package:panshop_driver/core/utils/extension/ui_extensions.dart';
+import 'package:panshop_driver/shared/widgets/common/text_input.dart';
+import 'package:panshop_driver/shared/widgets/loading_widget.dart';
 
 import '../../../core/base/base_get_widget.dart';
 import '../controllers/login_controller.dart';
@@ -17,57 +19,61 @@ class LoginScreen extends BaseGetWidget<LoginController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
         body: Padding(
           padding: EdgeInsets.all(s16),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                h64sb,
-                Text(
-                  'Login',
-                  style: textTheme.titleMedium,
-                ),
-                h32sb,
-                TextFormField(
-                  controller: phoneController,
-                  decoration: const InputDecoration(
-                    hintText: 'Số điện thoại',
-                    border: OutlineInputBorder(),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  h24sb,
+                  Text(
+                    'Panshop Driver',
+                    style: textTheme.titleMedium,
                   ),
-                  textInputAction: TextInputAction.next,
-                  style: textTheme.bodyMedium,
-                ),
-                h16sb,
-                TextFormField(
-                  controller: passwordController,
-                  decoration: const InputDecoration(
-                    hintText: 'Mật khẩu',
-                    border: OutlineInputBorder(),
+                  h16sb,
+                  Text(
+                    'Login',
+                    style: textTheme.titleSmall.withOpacity(0.5),
                   ),
-                  obscureText: true,
-                  style: textTheme.bodyMedium,
-                ),
-                h32sb,
-                SizedBox(
-                  width: double.infinity,
-                  height: h48,
-                  child: Obx(() {
-                    return ElevatedButton(
-                      onPressed: controller.isLoading
-                          ? null
-                          : () {
-                              controller.login(
-                                phoneController.text,
-                                passwordController.text,
-                              );
-                            },
-                      child: controller.isLoading ? const LoadingWidget() : const Text('Login'),
-                    );
-                  }),
-                ),
-              ],
+                  h48sb,
+                  TextInput(
+                    controller: phoneController,
+                    label: 'Số điện thoại',
+                    textInputAction: TextInputAction.next,
+                    style: textTheme.bodyMedium,
+                  ),
+                  h8sb,
+                  TextInput(
+                    controller: passwordController,
+                    label: 'Mật khẩu',
+                    textInputAction: TextInputAction.next,
+                    style: textTheme.bodyMedium,
+                    isPasswordInput: true,
+                  ),
+                  h32sb,
+                  SizedBox(
+                    width: double.infinity,
+                    height: h48,
+                    child: Obx(() {
+                      return ElevatedButton(
+                        onPressed: controller.isLoading
+                            ? null
+                            : () {
+                                controller.login(
+                                  phoneController.text,
+                                  passwordController.text,
+                                );
+                              },
+                        child: controller.isLoading
+                            ? const LoadingWidget()
+                            : Text('Login', style: textTheme.bodyMedium.withColor(AppColors.white)),
+                      );
+                    }),
+                  ),
+                  h96sb,
+                ],
+              ),
             ),
           ),
         ),

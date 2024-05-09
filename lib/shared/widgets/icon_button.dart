@@ -1,4 +1,4 @@
-import 'package:panshop_driver/core/constants/colors.dart';
+import 'package:panshop_driver/core/constants/app_colors.dart';
 import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
 import 'package:flutter/material.dart';
 
