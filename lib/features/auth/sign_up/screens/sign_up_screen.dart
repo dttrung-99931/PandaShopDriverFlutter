@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:panshop_driver/core/constants/app_colors.dart';
 import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
 import 'package:panshop_driver/core/constants/themes.dart';
 import 'package:panshop_driver/core/utils/extension/ui_extensions.dart';
+import 'package:panshop_driver/features/auth/login/screens/login_screen.dart';
 import 'package:panshop_driver/shared/widgets/common/text_input.dart';
 import 'package:panshop_driver/shared/widgets/loading_widget.dart';
 
-import '../../../core/base/base_get_widget.dart';
-import '../controllers/login_controller.dart';
+import '../../../../core/base/base_get_widget.dart';
+import '../controllers/sign_up_controller.dart';
 
-class LoginScreen extends BaseGetWidget<LoginController> {
-  LoginScreen({super.key});
+class SignUpScreen extends BaseGetWidget<SignUpController> {
+  SignUpScreen({super.key});
+
+  static const route = '/signUp';
+
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -33,7 +38,7 @@ class LoginScreen extends BaseGetWidget<LoginController> {
                   ),
                   h16sb,
                   Text(
-                    'Login',
+                    '- - - - - - -',
                     style: textTheme.titleSmall.withOpacity(0.5),
                   ),
                   h48sb,
@@ -47,6 +52,14 @@ class LoginScreen extends BaseGetWidget<LoginController> {
                   TextInput(
                     controller: passwordController,
                     label: 'Mật khẩu',
+                    textInputAction: TextInputAction.next,
+                    style: textTheme.bodyMedium,
+                    isPasswordInput: true,
+                  ),
+                  h8sb,
+                  TextInput(
+                    controller: passwordController,
+                    label: 'Mật khẩu xác nhận',
                     textInputAction: TextInputAction.next,
                     style: textTheme.bodyMedium,
                     isPasswordInput: true,
@@ -67,9 +80,16 @@ class LoginScreen extends BaseGetWidget<LoginController> {
                               },
                         child: controller.isLoading
                             ? const LoadingWidget()
-                            : Text('Login', style: textTheme.bodyMedium.withColor(AppColors.white)),
+                            : Text('Đăng ký', style: textTheme.bodyMedium.withColor(AppColors.white)),
                       );
                     }),
+                  ),
+                  h4sb,
+                  TextButton(
+                    onPressed: () {
+                      Get.offNamed(LoginScreen.route);
+                    },
+                    child: const Text('Đăng nhập'),
                   ),
                   h96sb,
                 ],

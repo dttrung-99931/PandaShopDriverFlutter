@@ -10,7 +10,8 @@ import 'package:panshop_driver/core/base/base_get_widget.dart';
 import 'package:panshop_driver/core/constants/themes.dart';
 import 'package:panshop_driver/core/translation/app_translation.dart';
 import 'package:panshop_driver/core/utils/error_handler/exception_handler.dart';
-import 'package:panshop_driver/features/login/login_route.dart';
+import 'package:panshop_driver/features/auth/login/login_route.dart';
+import 'package:panshop_driver/features/auth/login/screens/login_screen.dart';
 import 'package:panshop_driver/features/settings/controller.dart';
 import 'package:panshop_driver/global_binding.dart';
 
@@ -40,7 +41,7 @@ class App extends BaseGetWidget<SettingController> {
   final String initialRoute;
   const App({
     super.key,
-    this.initialRoute = Routes.login,
+    this.initialRoute = LoginScreen.route,
   });
   @override
   Widget build(BuildContext context) {
@@ -49,20 +50,19 @@ class App extends BaseGetWidget<SettingController> {
         FocusManager.instance.primaryFocus?.unfocus();
       },
       child: ScreenUtilInit(
-        builder: (ctx, child) => GetMaterialApp(
-          initialRoute: initialRoute,
-          getPages: [
-            homeRoute,
-            loginRoute,
-          ],
-          defaultTransition: Transition.cupertino,
-          transitionDuration: const Duration(milliseconds: 800),
-          debugShowCheckedModeBanner: false,
-          theme: buildTheme(context),
-          // Config translation
-          translations: AppTranslation(),
-          locale: controller.currentLocale,
-        ),
+        builder: (ctx, child) {
+          return GetMaterialApp(
+            initialRoute: initialRoute,
+            getPages: routes,
+            defaultTransition: Transition.cupertino,
+            transitionDuration: const Duration(milliseconds: 800),
+            debugShowCheckedModeBanner: false,
+            theme: buildTheme(context),
+            // Config translation
+            translations: AppTranslation(),
+            locale: controller.currentLocale,
+          );
+        },
       ),
     );
   }

@@ -1,11 +1,11 @@
 import 'package:panshop_driver/core/base/api_service.dart';
 import 'package:panshop_driver/core/base/base_model.dart';
 import 'package:panshop_driver/core/error/app_error.dart';
-import 'package:panshop_driver/features/login/services/dtos/login_request.dart';
-import 'package:panshop_driver/features/login/services/dtos/login_response.dart';
+import 'package:panshop_driver/features/auth/login/services/dtos/login_request.dart';
+import 'package:panshop_driver/features/auth/login/services/dtos/login_response.dart';
 import 'package:dartz/dartz.dart';
 
-class LoginService extends ApiService {
+class SignUpService extends ApiService {
   Future<Either<AppError, LoginResponseDto>> login(LoginRequestDto param) async {
     return handleResponse(
       responseFuture: post(

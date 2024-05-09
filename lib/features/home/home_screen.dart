@@ -7,6 +7,7 @@ import '../../core/base/base_get_widget.dart';
 import 'home_controller.dart';
 
 class HomeScreen extends BaseGetWidget<HomeController> {
+  static const route = '/';
   const HomeScreen({super.key});
 
   @override

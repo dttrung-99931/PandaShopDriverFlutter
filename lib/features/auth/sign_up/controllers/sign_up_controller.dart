@@ -1,12 +1,12 @@
-import 'package:panshop_driver/features/login/controllers/models/login_model.dart';
-import 'package:panshop_driver/features/login/services/dtos/login_request.dart';
-import 'package:panshop_driver/features/login/services/login_service.dart';
+import 'package:panshop_driver/features/auth/login/controllers/models/login_model.dart';
+import 'package:panshop_driver/features/auth/login/services/dtos/login_request.dart';
+import 'package:panshop_driver/features/auth/login/services/login_service.dart';
 import 'package:panshop_driver/shared/services/storage_service.dart';
 import 'package:get/get.dart';
 
-import '../../../core/base/base_controller.dart';
+import '../../../../core/base/base_controller.dart';
 
-class LoginController extends BaseController {
+class SignUpController extends BaseController {
   final isLoginSucces = RxBool(false);
   final LoginService _service = Get.find();
   final Storage _storage = Get.find();

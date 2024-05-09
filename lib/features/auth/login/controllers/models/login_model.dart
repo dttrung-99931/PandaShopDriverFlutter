@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:panshop_driver/features/login/services/dtos/login_response.dart';
+import 'package:panshop_driver/features/auth/login/services/dtos/login_response.dart';
 
 class LoginModel {
   final int userID;
