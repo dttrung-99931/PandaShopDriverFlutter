@@ -109,6 +109,10 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
       message += 'Error code: ${response.body!.errorCode!}';
     }
 
+    if (isNullOrEmpty(message)){
+      message = 'Lỗi xử lý, statusCode = ${response.statusCode}';
+    }
+
     return message;
   }
 }
