@@ -2,14 +2,14 @@
 import 'package:panshop_driver/features/auth/login/services/dtos/login_response.dart';
 
 class LoginModel {
-  final int userID;
+  final int userId;
   final String token;
   LoginModel({
-    required this.userID,
+    required this.userId,
     required this.token,
   });
 
   factory LoginModel.fromDto(LoginResponseDto dto) {
-    return LoginModel(userID: dto.userID, token: dto.token);
+    return LoginModel(userId: dto.userID, token: dto.token);
   }
 }

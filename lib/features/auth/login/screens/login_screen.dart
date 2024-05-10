@@ -50,9 +50,10 @@ class LoginScreen extends BaseGetWidget<LoginController> {
                   TextInput(
                     controller: passwordController,
                     label: 'Mật khẩu',
-                    textInputAction: TextInputAction.next,
+                    textInputAction: TextInputAction.done,
                     style: textTheme.bodyMedium,
                     isPasswordInput: true,
+                    onEditingComplete: _onLoginPressed,
                   ),
                   h32sb,
                   SizedBox(
@@ -60,14 +61,7 @@ class LoginScreen extends BaseGetWidget<LoginController> {
                     height: h48,
                     child: Obx(() {
                       return ElevatedButton(
-                        onPressed: controller.isLoading
-                            ? null
-                            : () {
-                                controller.login(
-                                  phoneController.text,
-                                  passwordController.text,
-                                );
-                              },
+                        onPressed: controller.isLoading ? null : _onLoginPressed,
                         child: controller.isLoading
                             ? const LoadingWidget()
                             : Text('Đăng nhập', style: textTheme.bodyMedium.withColor(AppColors.white)),
@@ -88,6 +82,13 @@ class LoginScreen extends BaseGetWidget<LoginController> {
           ),
         ),
       ),
+    );
+  }
+
+  _onLoginPressed() {
+    controller.login(
+      phoneController.text,
+      passwordController.text,
     );
   }
 }

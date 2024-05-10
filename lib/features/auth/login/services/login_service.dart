@@ -1,4 +1,4 @@
-import 'package:panshop_driver/core/base/api_service.dart';
+import 'package:panshop_driver/core/base/api_service/api_service.dart';
 import 'package:panshop_driver/core/base/base_model.dart';
 import 'package:panshop_driver/core/error/app_error.dart';
 import 'package:panshop_driver/features/auth/login/services/dtos/login_request.dart';
