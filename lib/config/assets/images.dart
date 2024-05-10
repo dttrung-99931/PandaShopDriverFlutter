@@ -5,4 +5,5 @@ class _Images {
   static const _path = 'assets/images';
 
   final test = '$_path/test.png';
+  final logo = '$_path/logo.png';
 }

@@ -59,7 +59,7 @@ class AppAlertDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = primaryColor ?? (isDoneIcon ? AppColors.green2 : AppColors.red);
+    final color = primaryColor ?? (isDoneIcon ? AppColors.primary : AppColors.red);
     return Dialog(
       backgroundColor: AppColors.transparent,
       alignment: Alignment.center,
@@ -68,7 +68,7 @@ class AppAlertDialog extends StatelessWidget {
           Container(
             width: width,
             margin: EdgeInsets.only(top: 32.h),
-            padding: EdgeInsets.all(16.w),
+            padding: EdgeInsets.symmetric(vertical: h12, horizontal: w16),
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: AppColors.white),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -76,7 +76,7 @@ class AppAlertDialog extends StatelessWidget {
               children: [
                 if (title.isNotEmpty) ...[
                   h8sb,
-                  Text(title, style: textTheme.titleSmall!.copyWith(fontWeight: FontWeight.bold)),
+                  Text(title, style: textTheme.bodySmall),
                   h20sb,
                 ],
                 if (message != null) ...[
@@ -99,13 +99,16 @@ class AppAlertDialog extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomButton(
+                        elevation: 0,
                         label: cancelLabel,
                         onPressed: onCancelPressed ?? () => Get.back(),
+                        backgroundColor: AppColors.grey,
                       ),
                     ),
                     if (negativeLabel != null)
                       Expanded(
                         child: CustomButton(
+                          elevation: 0,
                           label: negativeLabel!,
                           onPressed: onNegativePressed,
                           backgroundColor: color,
@@ -113,12 +116,13 @@ class AppAlertDialog extends StatelessWidget {
                       ),
                     Expanded(
                       child: CustomButton(
+                        elevation: 0,
                         label: confirmLabel,
                         onPressed: () {
                           onConfirm?.call();
                           Get.back();
                         },
-                          backgroundColor: color,
+                        backgroundColor: color,
                       ),
                     ),
                   ],

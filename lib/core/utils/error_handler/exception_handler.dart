@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:panshop_driver/core/error/exceptions/no_internet.dart';
-import 'package:panshop_driver/core/utils/utils.dart';
+import 'package:panshop_driver/core/utils/log.dart';
 
 import 'error_report_service.dart';
 

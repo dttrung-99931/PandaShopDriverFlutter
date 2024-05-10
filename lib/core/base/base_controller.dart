@@ -20,10 +20,10 @@ class BaseController extends GetxController {
     _subscriptions.add(notifier.listen(onChanged));
   }
 
-  Future<void> showSnackbar(String msg) async {
+  Future<void> showSnackbar(String message, {String title = 'Thông báo'}) async {
     await Get.snackbar(
-      msg,
-      msg,
+      title,
+      message,
       colorText: Colors.black,
     ).future;
   }

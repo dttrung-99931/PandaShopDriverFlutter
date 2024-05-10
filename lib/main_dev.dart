@@ -9,7 +9,7 @@ void main() async {
 
 void configDev() {
   AppConfig.set(
-    apiUrl: 'https://localhost:44444',
+    apiUrl: 'http://localhost:44444',
     flavor: AppFlavor.dev,
   );
 }

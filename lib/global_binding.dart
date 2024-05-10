@@ -1,7 +1,7 @@
 import 'package:panshop_driver/features/settings/controller.dart';
 import 'package:panshop_driver/shared/services/storage_service.dart';
 import 'package:get/get.dart';
-import 'controller.dart';
+import 'main_controller.dart';
 import 'core/utils/error_handler/error_report_service.dart';
 
 class GlobalBinding extends Bindings {
