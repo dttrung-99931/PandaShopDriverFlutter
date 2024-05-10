@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/foundation.dart';
 import 'package:panshop_driver/main.dart';
 
 class AppConfig {
@@ -6,10 +7,6 @@ class AppConfig {
     required this.apiUrl,
     required this.flavor,
   });
-  final String apiUrl;
-  final AppFlavor flavor;
-  static AppConfig get config => _config!;
-  static AppConfig? _config;
 
   static void set({
     required String apiUrl,
@@ -21,9 +18,16 @@ class AppConfig {
     );
   }
 
+  final String apiUrl;
+  final AppFlavor flavor;
+  static AppConfig get config => _config!;
+  static AppConfig? _config;
   static Map<AppFlavor, Function()> configurerMap = {
     AppFlavor.dev: configDev,
   };
+
+  bool get isDebug => kDebugMode;
+
   static Future<void> autoConfigByBundleId() async {
     AppFlavor env = await getFlavorByCurrentAppBundleId();
     configurerMap[env]?.call();

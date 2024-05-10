@@ -1,9 +1,9 @@
+import 'package:get/get.dart';
 import 'package:panshop_driver/features/auth/login/controllers/models/login_model.dart';
 import 'package:panshop_driver/features/auth/login/services/dtos/login_request.dart';
 import 'package:panshop_driver/features/auth/login/services/login_service.dart';
-import 'package:panshop_driver/features/home/home_screen.dart';
+import 'package:panshop_driver/features/main/main_screen.dart';
 import 'package:panshop_driver/shared/services/storage_service.dart';
-import 'package:get/get.dart';
 
 import '../../../../core/base/base_controller.dart';
 
@@ -20,7 +20,7 @@ class LoginController extends BaseController {
       dtoToModel: LoginModel.fromDto,
       onSuccess: (LoginModel result) {
         _storage.token = result.token;
-        Get.offNamed(HomeScreen.route);
+        Get.offNamed(MainScreen.route);
       },
     );
   }

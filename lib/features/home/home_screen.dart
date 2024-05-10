@@ -1,7 +1,8 @@
-import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
-import 'package:panshop_driver/shared/widgets/title_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
+import 'package:panshop_driver/shared/widgets/icon_button.dart';
+import 'package:panshop_driver/shared/widgets/title_icon_button.dart';
 
 import '../../core/base/base_get_widget.dart';
 import 'home_controller.dart';
@@ -12,34 +13,17 @@ class HomeScreen extends BaseGetWidget<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Obx(
-                () => Text("Counter ${controller.counter.value}"),
-              ),
-              h16sb,
-              TitleIconButton(
-                iconData: Icons.plus_one,
-                title: 'add'.tr,
-                onPressed: () {
-                  controller.increase();
-                },
-              ),
-              h8sb,
-              TitleIconButton(
-                iconData: Icons.exposure_minus_1,
-                title: 'subtract'.tr,
-                onPressed: () {
-                  controller.decrease();
-                },
-              )
-            ],
-          ),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AppIconButton(
+              iconData: Icons.local_shipping_outlined,
+              onPressed: () {},
+            ),
+          ],
         ),
       ),
     );

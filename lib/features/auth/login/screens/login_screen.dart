@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:panshop_driver/config/app_config.dart';
 import 'package:panshop_driver/core/constants/app_colors.dart';
 import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
 import 'package:panshop_driver/core/constants/themes.dart';
@@ -14,9 +15,12 @@ import '../controllers/login_controller.dart';
 class LoginScreen extends BaseGetWidget<LoginController> {
   LoginScreen({super.key});
   static const route = '/login';
-  final phoneController = TextEditingController();
-  final passwordController = TextEditingController();
-  final passwordConfirmController = TextEditingController();
+  final phoneController = TextEditingController(
+    text: AppConfig.config.isDebug ? '0888202079' : null,
+  );
+  final passwordController = TextEditingController(
+    text: AppConfig.config.isDebug ? 'aa123456' : null,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +50,7 @@ class LoginScreen extends BaseGetWidget<LoginController> {
                     textInputAction: TextInputAction.next,
                     style: textTheme.bodyMedium,
                   ),
-                  h8sb,
+                  h16sb,
                   TextInput(
                     controller: passwordController,
                     label: 'Mật khẩu',
