@@ -24,17 +24,17 @@ class MainBottomNavBar extends StatelessWidget {
                 items: [
                   BottomNavigationBarItem(
                     backgroundColor: Colors.white,
-                    icon: CardIcon.zeroPadding(Icons.shop_outlined),
+                    icon: CardIcon.smallPadding(Icons.home_outlined),
                     label: "Trang chủ",
                   ),
                   BottomNavigationBarItem(
                     backgroundColor: Colors.white,
-                    icon: CardIcon.zeroPadding(Icons.notifications_outlined),
+                    icon: CardIcon.smallPadding(Icons.notifications_outlined),
                     label: "Thông báo",
                   ),
                   BottomNavigationBarItem(
                     backgroundColor: Colors.white,
-                    icon: CardIcon.zeroPadding(Icons.account_box_outlined),
+                    icon: CardIcon.smallPadding(Icons.account_box_outlined),
                     label: "Tài khoản",
                   ),
                 ],

@@ -1,28 +1,40 @@
 import 'package:flutter/material.dart';
-import 'my_card.dart';
+import 'card.dart';
 
 class CardIcon extends StatelessWidget {
   const CardIcon(
     this.iconData, {
-    this.padding = const EdgeInsets.all(12),
+    this.padding = const EdgeInsets.all(8),
+    this.size,
     Key? key,
   }) : super(key: key);
   final IconData iconData;
   final EdgeInsets padding;
+  final double? size;
 
-  factory CardIcon.zeroPadding(IconData iconData) {
-    return CardIcon(iconData, padding: EdgeInsets.zero);
+  factory CardIcon.smallPadding(IconData iconData, {double? size}) {
+    return CardIcon(
+      iconData,
+      padding: EdgeInsets.zero,
+      size: size,
+    );
+  }
+
+  factory CardIcon.zeroPadding(IconData iconData, {double? size}) {
+    return CardIcon(
+      iconData,
+      padding: EdgeInsets.zero,
+      size: size,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return MyCard(
-      padding: padding,
+    return AppCard(
       elevation: 2,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 6),
-        child: Icon(iconData),
-      ),
+      padding: padding,
+      shape: BoxShape.circle,
+      child: Icon(iconData, size: size),
     );
   }
 }

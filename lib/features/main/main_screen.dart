@@ -39,6 +39,7 @@ class _MainScreenState extends State<MainScreen> {
     return SafeArea(
       child: Scaffold(
         body: PageView.builder(
+          physics: const NeverScrollableScrollPhysics(),
           onPageChanged: (index) {
             _currentPageIndex.value = index;
           },
