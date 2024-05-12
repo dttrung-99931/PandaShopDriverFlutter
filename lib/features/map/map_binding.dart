@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:panshop_driver/features/map/map_controller.dart';
+import 'package:panshop_driver/features/map/controllers/map_controller.dart';
 import 'package:panshop_driver/features/map/map_service.dart';
 
 class MapBinding extends Bindings {

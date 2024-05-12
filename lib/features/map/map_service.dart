@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
 import 'package:location/location.dart';
 import 'package:panshop_driver/core/utils/log.dart';
+import 'package:panshop_driver/features/map/controllers/models/location_model.dart';
 
 class MapService extends GetxService {
   final Location _location = Location();
 
-  Future<LocationData?> getCurrentLocationn() async {
+  Future<LocationModel?> getCurrentLocation() async {
     bool locationServiceEnabled = await _location.serviceEnabled();
     if (!locationServiceEnabled) {
       locationServiceEnabled = await _location.requestService();
@@ -27,6 +28,7 @@ class MapService extends GetxService {
       }
     }
 
-    return _location.getLocation();
+    LocationData locationData = await _location.getLocation();
+    return LocationModel.fromLocationData(locationData);
   }
 }
