@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:panshop_driver/core/constants/constants.dart';
+import 'package:panshop_driver/features/account/account_screen.dart';
 import 'package:panshop_driver/features/home/home_screen.dart';
 import 'package:panshop_driver/features/main/widgets/main_bottom_nav_bar.dart';
 import 'package:panshop_driver/global.dart';
+import 'package:panshop_driver/shared/widgets/keep_page_alive.dart';
 
 class MainScreen extends StatefulWidget {
   static const route = '/main';
@@ -13,23 +15,27 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  ValueNotifier<int> get _currentPageIndex => Global.selectedHomePageIndexNotifier;
-
   late final PageController _pageController;
 
   @override
   void initState() {
     _pageController = PageController();
-    _currentPageIndex.addListener(() {
-      if (_pageController.hasClients && mounted) {
-        _pageController.jumpToPage(_currentPageIndex.value);
-      }
-    });
+    if (Global.selectedMainPageIndexNotifier.value != 0) {
+      Global.selectedMainPageIndexNotifier.value = 0;
+    }
+    Global.selectedMainPageIndexNotifier.addListener(_onMainPageChanged);
     super.initState();
+  }
+
+  void _onMainPageChanged() {
+    if (_pageController.hasClients && mounted) {
+      _pageController.jumpToPage(Global.selectedMainPageIndexNotifier.value);
+    }
   }
 
   @override
   void dispose() {
+    Global.selectedMainPageIndexNotifier.removeListener(_onMainPageChanged);
     _pageController.dispose();
     super.dispose();
   }
@@ -40,21 +46,19 @@ class _MainScreenState extends State<MainScreen> {
       child: Scaffold(
         body: PageView.builder(
           physics: const NeverScrollableScrollPhysics(),
-          onPageChanged: (index) {
-            _currentPageIndex.value = index;
-          },
           controller: _pageController,
-          itemCount: 4,
+          itemCount: 3,
+          onPageChanged: (index) {
+            Global.selectedMainPageIndexNotifier.value = index;
+          },
           itemBuilder: (context, index) {
             switch (index) {
               case 0:
-                return const HomeScreen();
+                return const KeepPageAlive(child: HomeScreen());
               case 1:
                 return emptyWidget;
               case 2:
-                return emptyWidget;
-              case 3:
-                return emptyWidget;
+                return const KeepPageAlive(child: AccountScreen());
               default:
             }
 
@@ -62,7 +66,7 @@ class _MainScreenState extends State<MainScreen> {
           },
         ),
         bottomNavigationBar: MainBottomNavBar(
-          selectedIndexNotifier: Global.selectedHomePageIndexNotifier,
+          selectedIndexNotifier: Global.selectedMainPageIndexNotifier,
         ),
       ),
     );

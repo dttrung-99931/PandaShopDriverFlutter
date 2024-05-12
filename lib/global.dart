@@ -2,5 +2,5 @@
 import 'package:flutter/material.dart';
 
 class Global {
-  static ValueNotifier<int> selectedHomePageIndexNotifier = ValueNotifier(0);
+  static ValueNotifier<int> selectedMainPageIndexNotifier = ValueNotifier(0);
 }

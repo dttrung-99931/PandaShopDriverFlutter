@@ -20,12 +20,9 @@ class BaseController extends GetxController {
     _subscriptions.add(notifier.listen(onChanged));
   }
 
-  Future<void> showSnackbar(String message, {String title = 'Thông báo'}) async {
-    await Get.snackbar(
-      title,
-      message,
-      colorText: Colors.black,
-    ).future;
+  Future<void> showSnackbar(String message,
+      {String title = 'Thông báo'}) async {
+    showSnackbar(message, title: title);
   }
 
   Future<void> handleServiceResult<Dto, Model>({

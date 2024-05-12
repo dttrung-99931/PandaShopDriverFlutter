@@ -34,8 +34,13 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ClipRRect(
-                  borderRadius: BorderRadius.circular(8.r), child: images.logo.build(height: 128.r, width: 128.r)),
-              h20sb,
+                borderRadius: BorderRadius.circular(8.r),
+                child: images.logo.build(
+                  height: 128.r,
+                  width: 128.r,
+                ),
+              ),
+              h16sb,
               Text(
                 'Panshop Driver',
                 style: textTheme.titleSmall,

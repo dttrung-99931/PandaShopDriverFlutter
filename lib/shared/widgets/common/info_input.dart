@@ -60,8 +60,10 @@ class InfoInput extends StatelessWidget {
   final double labelTopMargin;
   final double trailingSpacing;
   final double? textInputHeight;
-  late final ValueNotifier<bool> _shouldShowInputErr = ValueNotifier(initialShouldShowError);
-  late final ValueNotifier<bool> _shouldShowSecondInputErr = ValueNotifier(initialShouldShowError);
+  late final ValueNotifier<bool> _shouldShowInputErr =
+      ValueNotifier(initialShouldShowError);
+  late final ValueNotifier<bool> _shouldShowSecondInputErr =
+      ValueNotifier(initialShouldShowError);
   final List<s.TextInputFormatter>? inputFormatters;
 
   /// Used to fix input error msg disappered when unfocus [SignUpStep2LabInfoInputScreen]
@@ -125,7 +127,9 @@ class InfoInput extends StatelessWidget {
   })  : trailingSpacing = trailingSpacing ?? 16.w,
         titleStyle = labelStyle ??
             textTheme.bodyMedium!.copyWith(
-              fontWeight: direction == Axis.horizontal ? FontWeight.normal : FontWeight.w600,
+              fontWeight: direction == Axis.horizontal
+                  ? FontWeight.normal
+                  : FontWeight.w600,
             ),
         assert(
           // ignore: unrelated_type_equality_checks
@@ -175,7 +179,7 @@ class InfoInput extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (showTopDivider) const Divider(color: AppColors.blackLight),
+        if (showTopDivider) const Divider(color: AppColors.greyDark),
         SizedBox(height: verticalPadding),
         Flex(
           direction: direction,
@@ -190,14 +194,16 @@ class InfoInput extends StatelessWidget {
                     )
                   : _title(),
             isHorizontal ? spacing.swb : spacing.shb,
-            isHorizontal ? Expanded(flex: 14, child: inputContent) : inputContent,
+            isHorizontal
+                ? Expanded(flex: 14, child: inputContent)
+                : inputContent,
             if (hasRightSpace) const ExpandedSizedBox(flex: 4),
           ],
         ),
         if (bottomText != null) const SizedBox(height: 6.0),
         if (bottomText != null) _bottomText(),
         SizedBox(height: verticalPadding),
-        if (showBottomDivider) const Divider(color: AppColors.blackLight),
+        if (showBottomDivider) const Divider(color: AppColors.greyDark),
       ],
     );
   }
@@ -284,7 +290,9 @@ class InfoInput extends StatelessWidget {
           child: Text(
             bottomText!.tr,
             style: textTheme.labelMedium?.copyWith(
-              color: bottomTextType == TextType.normal ? AppColors.blackLight : AppColors.redDeep,
+              color: bottomTextType == TextType.normal
+                  ? AppColors.greyDark
+                  : AppColors.redDeep,
             ),
           ),
         ),
@@ -300,14 +308,17 @@ class InfoInput extends StatelessWidget {
         Row(
           crossAxisAlignment: rowCrossAxisAlignment,
           children: [
-            inputWidth != null ? SizedBox(width: inputWidth, child: input) : Expanded(child: input),
+            inputWidth != null
+                ? SizedBox(width: inputWidth, child: input)
+                : Expanded(child: input),
             if (secondController != null) const SizedBox(width: 16),
             if (secondController != null)
               secondInputWidth != null
                   ? SizedBox(width: secondInputWidth, child: secondInput)
                   : Expanded(child: secondInput!),
             if (trailing != null) trailingSpacing.swb,
-            if (trailing != null) expandTrailing ? Expanded(child: trailing!) : trailing!,
+            if (trailing != null)
+              expandTrailing ? Expanded(child: trailing!) : trailing!,
             SizedBox(width: paddingRight),
           ],
         ),

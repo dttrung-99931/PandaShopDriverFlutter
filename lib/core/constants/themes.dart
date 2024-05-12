@@ -11,34 +11,35 @@ ThemeData buildTheme(BuildContext appContext) {
     primarySwatch: AppColors.primary,
     scaffoldBackgroundColor: AppColors.background,
     iconTheme: const IconThemeData(color: AppColors.primary),
-    appBarTheme: const AppBarTheme(iconTheme: IconThemeData(color: Colors.white)),
+    appBarTheme:
+        const AppBarTheme(iconTheme: IconThemeData(color: Colors.white)),
     fontFamily: 'Urbanist',
     textTheme: Theme.of(appContext).textTheme.copyWith(
           titleLarge: TextStyle(
             fontSize: fz32,
-            color: AppColors.black,
+            color: AppColors.blackLight,
           ),
           titleMedium: TextStyle(
             fontSize: fz24,
-            color: AppColors.black,
+            color: AppColors.blackLight,
           ),
           titleSmall: TextStyle(
             fontSize: fz20,
-            color: AppColors.black,
+            color: AppColors.blackLight,
           ),
 
           // Contennt
           bodyLarge: TextStyle(
             fontSize: fz18,
-            color: AppColors.black,
+            color: AppColors.blackLight,
           ),
           bodyMedium: TextStyle(
             fontSize: fz16,
-            color: AppColors.black,
+            color: AppColors.blackLight,
           ),
           bodySmall: TextStyle(
             fontSize: fz14,
-            color: AppColors.black,
+            color: AppColors.blackLight,
           ),
 
           /// Lable

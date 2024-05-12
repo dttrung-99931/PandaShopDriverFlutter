@@ -142,7 +142,8 @@ class _TextInputState extends State<TextInput> {
       _key.currentState?.validate();
     }
     if (_focusNode.hasFocus && widget.selectAllOnFocus) {
-      _controller.selection = TextSelection(baseOffset: 0, extentOffset: _controller.text.length);
+      _controller.selection =
+          TextSelection(baseOffset: 0, extentOffset: _controller.text.length);
     }
     widget.onFocusChanged?.call(_focusNode.hasFocus);
   }
@@ -188,22 +189,30 @@ class _TextInputState extends State<TextInput> {
                 height: 1.0,
               ),
               errorBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: AppColors.blackLight, width: 1),
+                borderSide:
+                    const BorderSide(color: AppColors.greyDark, width: 1),
                 borderRadius: BorderRadius.circular(widget.borderRadius),
               ),
-              label: widget.label != null ? Text(widget.label!, style: widget.labelStyle) : null,
+              label: widget.label != null
+                  ? Text(widget.label!, style: widget.labelStyle)
+                  : null,
               focusedErrorBorder: _focusedBorder,
-              fillColor: widget.enabled ? AppColors.whiteLight : widget.disableColor,
+              fillColor:
+                  widget.enabled ? AppColors.whiteLight : widget.disableColor,
               filled: true,
               suffixIconConstraints: const BoxConstraints(maxHeight: 30),
-              suffixIcon: widget.suffixIcon ?? (widget.isPasswordInput ? _pwdEye() : null),
+              suffixIcon: widget.suffixIcon ??
+                  (widget.isPasswordInput ? _pwdEye() : null),
               isDense: true,
               enabledBorder: widget.border ?? _border,
               focusedBorder: _focusedBorder,
               border: widget.border ?? _border,
               disabledBorder: _border,
-              hintStyle: (widget.labelStyle ?? widget.style ?? textTheme.bodyMedium!).withColor(AppColors.hint),
-              contentPadding: widget.contentPadding ?? EdgeInsets.symmetric(vertical: 14.h, horizontal: 12.w),
+              hintStyle:
+                  (widget.labelStyle ?? widget.style ?? textTheme.bodyMedium!)
+                      .withColor(AppColors.hint),
+              contentPadding: widget.contentPadding ??
+                  EdgeInsets.symmetric(vertical: 14.h, horizontal: 12.w),
             ),
             onTap: () {
               widget.onTap?.call();
@@ -236,11 +245,13 @@ class _TextInputState extends State<TextInput> {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              Icon(Icons.remove_red_eye_outlined, color: AppColors.blackLight, size: 20.r),
+              Icon(Icons.remove_red_eye_outlined,
+                  color: AppColors.greyDark, size: 20.r),
               if (isSecure)
                 Text(
                   '/',
-                  style: textTheme.bodyMedium.withColor(AppColors.blackLight).bold(),
+                  style:
+                      textTheme.bodyMedium.withColor(AppColors.greyDark).bold(),
                 ),
             ],
           ),

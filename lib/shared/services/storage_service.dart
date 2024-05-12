@@ -7,6 +7,8 @@ class Storage extends GetxService {
   static const _keyToken = 'keyToken';
   static const _keyLanguageCode = 'keyLanguageCode';
 
+  GetStorage get _storage => GetStorage();
+
   Future<void> init() async {
     await GetStorage.init();
   }
@@ -18,6 +20,10 @@ class Storage extends GetxService {
   final _languageCodeStorage = ReadWriteValue<String?>(_keyLanguageCode, null);
   String? get languageCode => _languageCodeStorage.val;
   set languageCode(value) => _languageCodeStorage.val = value;
+
+  Future<void> clear() async {
+    await _storage.erase();
+  }
 }
 
 extension TokenStorage on Storage {}

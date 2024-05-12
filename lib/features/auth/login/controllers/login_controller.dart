@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:panshop_driver/features/auth/login/controllers/models/login_model.dart';
+import 'package:panshop_driver/features/auth/login/screens/login_screen.dart';
 import 'package:panshop_driver/features/auth/login/services/dtos/login_request.dart';
 import 'package:panshop_driver/features/auth/login/services/login_service.dart';
 import 'package:panshop_driver/features/main/main_screen.dart';
@@ -23,5 +24,10 @@ class LoginController extends BaseController {
         Get.offNamed(MainScreen.route);
       },
     );
+  }
+
+  Future<void> logout() async {
+    await _storage.clear();
+    Get.offAllNamed(LoginScreen.route);
   }
 }
