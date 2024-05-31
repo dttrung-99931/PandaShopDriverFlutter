@@ -1,16 +1,22 @@
 // ignore_for_file: unnecessary_late
 
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:panshop_driver/core/constants/app_colors.dart';
 import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 ThemeData buildTheme(BuildContext appContext) {
   return ThemeData(
     primarySwatch: AppColors.primary,
     scaffoldBackgroundColor: AppColors.background,
     iconTheme: const IconThemeData(color: AppColors.primary),
+    elevatedButtonTheme: const ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStatePropertyAll(
+          AppColors.primary,
+        ),
+      ),
+    ),
     appBarTheme:
         const AppBarTheme(iconTheme: IconThemeData(color: Colors.white)),
     fontFamily: 'Urbanist',

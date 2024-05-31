@@ -16,7 +16,7 @@ class MainBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 52.h,
+      height: 56.h,
       child: ValueListenableBuilder(
           valueListenable: selectedIndexNotifier,
           builder: (_, __, ___) {
@@ -29,12 +29,14 @@ class MainBottomNavBar extends StatelessWidget {
                 ),
                 BottomNavigationBarItem(
                   backgroundColor: Colors.white,
-                  icon: CardIcon.smallPadding(Icons.notifications_outlined, size: 24.r),
+                  icon: CardIcon.smallPadding(Icons.notifications_outlined,
+                      size: 24.r),
                   label: "Thông báo",
                 ),
                 BottomNavigationBarItem(
                   backgroundColor: Colors.white,
-                  icon: CardIcon.smallPadding(Icons.account_box_outlined, size: 24.r),
+                  icon: CardIcon.smallPadding(Icons.account_box_outlined,
+                      size: 24.r),
                   label: "Tài khoản",
                 ),
               ],
