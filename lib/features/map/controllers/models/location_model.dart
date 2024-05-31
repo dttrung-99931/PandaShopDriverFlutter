@@ -3,16 +3,16 @@ import 'package:location_platform_interface/location_platform_interface.dart';
 
 class LocationModel {
   LocationModel({
-    required this.latitude,
-    required this.longitude,
+    required this.lat,
+    required this.long,
   });
-  final double latitude;
-  final double longitude;
-  
-  LatLng get latLng => LatLng(latitude, longitude);
+  final double lat;
+  final double long;
+
+  LatLng get latLng => LatLng(lat, long);
 
   static LocationModel fromLocationData(LocationData locationData) {
     return LocationModel(
-        latitude: locationData.latitude!, longitude: locationData.longitude!);
+        lat: locationData.latitude!, long: locationData.longitude!);
   }
 }
