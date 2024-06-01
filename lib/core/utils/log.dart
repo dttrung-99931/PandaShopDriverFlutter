@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'dart:math' as math;
 
 void loge(Object e, {int? maxLength}) {
-  print('ERROR: ${cutString(e.toString(), maxLength)}');
+  log('ERROR: ${cutString(e.toString(), maxLength)}');
 }
 
 void logd(Object e, {int? maxLength}) {

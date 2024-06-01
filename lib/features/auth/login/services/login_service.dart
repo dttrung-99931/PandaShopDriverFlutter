@@ -6,14 +6,15 @@ import 'package:panshop_driver/features/auth/login/services/dtos/login_response.
 import 'package:dartz/dartz.dart';
 
 class LoginService extends ApiService {
-  Future<Either<AppError, LoginResponseDto>> login(LoginRequestDto param) async {
+  Future<Either<AppError, LoginResponseDto>> login(
+      LoginRequestDto param) async {
     return handleResponse(
       responseFuture: post(
         '/v1/Users/login',
         param.toJson(),
-        decoder: (data) => ResponseWrapper.fromMap(
-          data,
-          LoginResponseDto.fromMap,
+        decoder: (data) => ResponseWrapper.dataObject(
+          responseJson: data,
+          dataFromJson: LoginResponseDto.fromMap,
         ),
       ),
     );

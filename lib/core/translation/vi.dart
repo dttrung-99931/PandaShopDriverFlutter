@@ -1,4 +1,5 @@
 const Map<String, String> vi = {
-  'add': 'Cộng',
-  'subtract': 'Trừ',
+  // Home
+  'current_delivery': 'Đơn vận hiện tại',
+  'incoming_deliveries': 'Đơn vận sắp tơi',
 };

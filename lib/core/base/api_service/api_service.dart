@@ -11,6 +11,7 @@ import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import 'package:panshop_driver/core/utils/log.dart';
 import 'package:panshop_driver/core/utils/utils.dart';
+import 'package:panshop_driver/shared/services/storage_service.dart';
 import '../../error/exceptions/no_internet.dart';
 
 /// Base service class for handling API calls
@@ -19,7 +20,15 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
     // TODO: get from config
     baseUrl = AppConfig.config.apiUrl;
     allowAutoSignedCert = true;
+    httpClient.addAuthenticator<dynamic>(
+      (request) async {
+        request.headers['Authorization'] = 'Bearer ${_storage.token}';
+        return request;
+      },
+    );
   }
+
+  final Storage _storage = Get.find();
 
   /// Http Get method
   ///
@@ -60,8 +69,9 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
     } catch (e) {
       logd(e);
       return Left(
-        UnexpectedAppError(message: 'Xảy ra lỗi trong quá trình xử lý', exception: e)
-          ..log(moreDetailedStackTrace: e is TypeError ? e.stackTrace : null),
+        UnexpectedAppError(
+            message: 'Xảy ra lỗi trong quá trình xử lý', exception: e)
+          ..log(moreDetailedStackTrace: (e as dynamic).stackTrace),
       );
     }
 
@@ -73,6 +83,9 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
         (allowSuccessNullBody || response.body?.data != null)) {
       return Right(response.body?.data as T);
     }
+    loge(
+      'Response ${response.request?.url.path} data = ${response.body?.data}, statusCode = ${response.statusCode}',
+    );
     return Left(
       ServerError(
         message: _getErrorMessage(response),
@@ -109,7 +122,7 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
       message += 'Error code: ${response.body!.errorCode!}';
     }
 
-    if (isNullOrEmpty(message)){
+    if (!isNullOrEmpty(message)) {
       message = 'Lỗi xử lý, statusCode = ${response.statusCode}';
     }
 

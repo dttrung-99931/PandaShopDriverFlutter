@@ -10,9 +10,9 @@ class SignUpService extends ApiService {
       responseFuture: post(
         '/v1/Users/Drivers',
         param.toJson(),
-        decoder: (data) => ResponseWrapper.fromMap(
-          data,
-          (json) {
+        decoder: (data) => ResponseWrapper.dataObject(
+          responseJson: data,
+          dataFromJson: (json) {
             return json;
           },
         ),

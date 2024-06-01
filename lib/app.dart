@@ -28,6 +28,7 @@ void startApp() {
 Future<void> setup() async {
   // Setup error handler
   FlutterError.onError = ExceptionHandler.handleSyncError;
+
   // Setup error ui builder that builds ui to notify errors to users
   ErrorWidget.builder = ExceptionHandler.errorWidgetBuilder;
   await GetStorage.init();

@@ -12,7 +12,7 @@ class ExceptionHandler {
   }
 
   static void handleSyncError(FlutterErrorDetails details) {
-    logd('Handle Sync Error');
+    // logd('Handle Sync Error');
     reportError(details.exception);
   }
 
@@ -28,7 +28,8 @@ class ExceptionHandler {
   static void reportError(Object exception, [StackTrace? stackTrace]) {
     try {
       final errorReportService = Get.find<ErrorReportService>();
-      errorReportService.reportError(exception.toString(), stackTrace.toString());
+      errorReportService.reportError(
+          exception.toString(), stackTrace.toString());
     } catch (e) {
       loge(e.toString());
     }

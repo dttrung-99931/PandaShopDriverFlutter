@@ -9,12 +9,4 @@ class HomeController extends BaseController {
   Future<void> onInit() async {
     super.onInit();
   }
-
-  void increase() async {
-    counter.value++;
-  }
-
-  void decrease() async {
-    counter.value--;
-  }
 }

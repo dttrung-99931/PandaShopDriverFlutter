@@ -1,17 +1,11 @@
-import 'package:panshop_driver/shared/widgets/common/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'base_controller.dart';
 
-abstract class BaseGetWidget<TController extends BaseController> extends GetWidget<TController> {
+abstract class BaseGetWidget<TController extends BaseController>
+    extends GetWidget<TController> {
   const BaseGetWidget({super.key});
-
-  /// Build widget that is progress bar if [controller.isLoading] is true
-  /// otherwise [child]
-  Obx buildLoadingObx(Widget child) {
-    return Obx(() => controller.isLoading ? const LoadingWidget() : child);
-  }
 
   Future<void> showAlertDialog(String alertMsg, Function onYes) async {
     var alertDialog = AlertDialog(

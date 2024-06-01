@@ -1,4 +1,5 @@
 const Map<String, String> en = {
-  'add': 'Add',
-  'subtract': 'Subtract',
+  // Home
+  'current_delivery': 'Current delivery',
+  'incoming_deliveries': 'Incoming deliveries',
 };
