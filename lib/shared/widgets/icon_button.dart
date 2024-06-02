@@ -15,8 +15,8 @@ class AppIconButton extends StatelessWidget {
     double? size,
     this.color = AppColors.primary,
     EdgeInsets? padding,
-  })  : size = size ?? s4,
-        padding = padding ?? EdgeInsets.all(s4);
+  })  : size = size ?? r4,
+        padding = padding ?? EdgeInsets.all(r4);
 
   @override
   Widget build(BuildContext context) {

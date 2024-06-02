@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'card.dart';
+import 'app_card.dart';
 
 class CardIcon extends StatelessWidget {
   const CardIcon(
@@ -31,6 +31,8 @@ class CardIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppCard(
+      margin: EdgeInsets.zero,
+      borderRadius: 16,
       elevation: 2,
       padding: padding,
       shape: BoxShape.circle,

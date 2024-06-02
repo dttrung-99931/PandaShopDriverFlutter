@@ -26,8 +26,8 @@ class TitleIconButton extends StatelessWidget {
     EdgeInsets? padding,
     double? iconAndTitleSpace,
   })  : iconAndTitleSpace = iconAndTitleSpace ?? w8,
-        iconSize = iconSize ?? s20,
-        padding = padding ?? EdgeInsets.all(s4);
+        iconSize = iconSize ?? r20,
+        padding = padding ?? EdgeInsets.all(r4);
 
   @override
   Widget build(BuildContext context) {

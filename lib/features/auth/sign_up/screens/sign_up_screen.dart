@@ -22,7 +22,7 @@ class SignUpScreen extends BaseGetWidget<SignUpController> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.all(s16),
+          padding: EdgeInsets.all(r16),
           child: Center(
             child: SingleChildScrollView(
               child: Form(
@@ -105,7 +105,8 @@ class _SignUpButton extends StatelessWidget {
                 },
           child: controller.isLoading
               ? const LoadingWidget()
-              : Text('Đăng ký', style: textTheme.bodyMedium.withColor(AppColors.white)),
+              : Text('Đăng ký',
+                  style: textTheme.bodyMedium.withColor(AppColors.white)),
         );
       }),
     );

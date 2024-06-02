@@ -7,6 +7,8 @@ class SliverSection extends StatelessWidget {
   final String title;
   final EdgeInsets padding;
   final EdgeInsets titlePadding;
+  final EdgeInsets? contentPadding;
+  final EdgeInsets? margin;
 
   const SliverSection({
     super.key,
@@ -14,6 +16,8 @@ class SliverSection extends StatelessWidget {
     required this.child,
     this.padding = const EdgeInsets.all(12),
     this.titlePadding = EdgeInsets.zero,
+    this.margin,
+    this.contentPadding,
   });
 
   @override
@@ -23,6 +27,8 @@ class SliverSection extends StatelessWidget {
         title: title,
         padding: padding,
         titlePadding: titlePadding,
+        contentPadding: contentPadding,
+        margin: margin,
         child: child,
       ),
     );

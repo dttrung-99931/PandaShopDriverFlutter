@@ -25,7 +25,7 @@ class LoadingObx<T extends BaseController> extends Obx {
   Widget build() {
     return controller.isLoading
         ? isSliver
-            ? const SliverToBoxAdapter(child: LoadingWidget())
+            ? const SliverFillRemaining(child: LoadingWidget())
             : const LoadingWidget()
         : builder();
   }

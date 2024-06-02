@@ -27,7 +27,7 @@ class LoginScreen extends BaseGetWidget<LoginController> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.all(s16),
+          padding: EdgeInsets.all(r16),
           child: Center(
             child: SingleChildScrollView(
               child: Column(
@@ -65,10 +65,13 @@ class LoginScreen extends BaseGetWidget<LoginController> {
                     height: h48,
                     child: Obx(() {
                       return ElevatedButton(
-                        onPressed: controller.isLoading ? null : _onLoginPressed,
+                        onPressed:
+                            controller.isLoading ? null : _onLoginPressed,
                         child: controller.isLoading
                             ? const LoadingWidget()
-                            : Text('Đăng nhập', style: textTheme.bodyMedium.withColor(AppColors.white)),
+                            : Text('Đăng nhập',
+                                style: textTheme.bodyMedium
+                                    .withColor(AppColors.white)),
                       );
                     }),
                   ),

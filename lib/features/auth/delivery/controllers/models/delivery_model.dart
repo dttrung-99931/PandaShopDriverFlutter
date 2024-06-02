@@ -4,18 +4,12 @@ import 'package:panshop_driver/features/auth/delivery/controllers/models/address
 import 'package:panshop_driver/features/auth/delivery/services/dtos/delivery_response.dart';
 
 class DeliveryModel {
-  final int id;
-  final AddressModel address;
-  final DateTime? finishedAt;
-  final DateTime? startedAt;
-  // final DeliveryStatus startedAt;
   DeliveryModel({
     required this.id,
     required this.address,
     required this.finishedAt,
     required this.startedAt,
   });
-
   factory DeliveryModel.fromDto(DeliveryResponseDto dto) {
     return DeliveryModel(
       id: dto.id,
@@ -24,4 +18,11 @@ class DeliveryModel {
       startedAt: dto.startedAt,
     );
   }
+
+  final int id;
+  final AddressModel address;
+  final DateTime? finishedAt;
+  final DateTime? startedAt;
+  // final DeliveryStatus startedAt;
+  String get estimtatedPickUpDuration => "10mins";
 }

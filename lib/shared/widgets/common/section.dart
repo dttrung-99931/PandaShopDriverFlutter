@@ -1,19 +1,22 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:panshop_driver/core/constants/app_colors.dart';
+import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
 import 'package:panshop_driver/core/constants/diemsions/size_extensions.dart';
 import 'package:panshop_driver/core/constants/themes.dart';
 
 class Section extends StatelessWidget {
   static final EdgeInsets defaultMargin =
-      EdgeInsets.only(top: 4.h, left: 4.w, right: 4.w);
+      EdgeInsets.only(top: r8, left: r8, right: r8);
   final Widget child;
   final String? title;
   final EdgeInsets padding;
   final EdgeInsets margin;
   final EdgeInsets titlePadding;
-  final EdgeInsets? contentPadding;
+  final EdgeInsets contentPadding;
   final double spacing;
   final BoxDecoration? decoration;
 
@@ -23,16 +26,22 @@ class Section extends StatelessWidget {
     this.title,
     this.padding = const EdgeInsets.all(12),
     this.titlePadding = EdgeInsets.zero,
-    this.contentPadding,
     this.spacing = 0,
     this.decoration,
     EdgeInsets? margin,
-  }) : margin = margin ?? defaultMargin;
+    EdgeInsets? contentPadding,
+  })  : margin = margin ?? defaultMargin,
+        contentPadding = contentPadding ??
+            EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: decoration ?? const BoxDecoration(color: AppColors.white),
+      decoration: decoration ??
+          BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(4),
+          ),
       margin: margin,
       padding: padding,
       child: Column(
@@ -50,10 +59,7 @@ class Section extends StatelessWidget {
               ),
             ),
           spacing.shb,
-          Padding(
-              padding: contentPadding ??
-                  EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
-              child: child),
+          Padding(padding: contentPadding, child: child),
         ],
       ),
     );

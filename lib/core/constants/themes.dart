@@ -17,8 +17,14 @@ ThemeData buildTheme(BuildContext appContext) {
         ),
       ),
     ),
-    appBarTheme:
-        const AppBarTheme(iconTheme: IconThemeData(color: Colors.white)),
+    iconButtonTheme: const IconButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStatePropertyAll(AppColors.primary),
+      ),
+    ),
+    appBarTheme: const AppBarTheme(
+      iconTheme: IconThemeData(color: Colors.white),
+    ),
     fontFamily: 'Urbanist',
     textTheme: Theme.of(appContext).textTheme.copyWith(
           titleLarge: TextStyle(
