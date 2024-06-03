@@ -41,8 +41,7 @@ class UpcomingDeliveryList extends BaseGetWidget<DeliveryController> {
                           padding: EdgeInsets.zero,
                           itemCount: controller.deliveries.length,
                           itemBuilder: (context, index) {
-                            return DeliveryItem(
-                                delivery: controller.deliveries[index]);
+                            return DeliveryItem(delivery: controller.deliveries[index]);
                           },
                           separatorBuilder: (BuildContext context, int index) {
                             return h8sb;
@@ -50,7 +49,7 @@ class UpcomingDeliveryList extends BaseGetWidget<DeliveryController> {
                         ),
                       ),
                     )
-                  : const Center(child: NotFound(isSliver: true));
+                  : const Center(child: NotFound());
             },
           ),
         ),
