@@ -10,8 +10,7 @@ class AppIconButton extends StatelessWidget {
     this.iconData,
     required this.onPressed,
   }) {
-    assert(iconData == null || icon == null,
-        'Cannot used iconData when used icon');
+    assert(iconData == null || icon == null, 'Cannot used iconData when used icon');
   }
 
   final IconData? iconData;
@@ -23,7 +22,7 @@ class AppIconButton extends StatelessWidget {
     return CupertinoButton(
       padding: EdgeInsets.all(r4),
       minSize: 0,
-      onPressed: () {},
+      onPressed: onPressed,
       child: icon ??
           Icon(
             iconData!,
