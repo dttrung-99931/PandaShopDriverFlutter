@@ -42,3 +42,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Ignore here sdk pluggin because it's too large (>300MB)
+plugins/heresdk-explore-flutter/

@@ -29,8 +29,7 @@ class HomeScreen extends BaseGetWidget<HomeController> {
             slivers: [
               SliverToBoxAdapter(
                 child: AppCard(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
+                  padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
                   child: Row(
                     children: [
                       images.logo.build(height: h48),

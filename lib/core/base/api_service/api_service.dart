@@ -69,9 +69,8 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
     } catch (e) {
       logd(e);
       return Left(
-        UnexpectedAppError(
-            message: 'Xảy ra lỗi trong quá trình xử lý', exception: e)
-          ..log(moreDetailedStackTrace: (e as dynamic).stackTrace),
+        UnexpectedAppError(message: 'Xảy ra lỗi trong quá trình xử lý', exception: e)
+          ..log(moreDetailedStackTrace: (e as dynamic)?.stackTrace),
       );
     }
 

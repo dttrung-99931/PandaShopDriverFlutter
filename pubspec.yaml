@@ -15,13 +15,17 @@ dependencies:
   get_storage: ^2.1.1
   flutter_screenutil: ^5.0.0+2
   dartz: ^0.10.1
-  google_maps_flutter: ^2.3.0
-  location: ^6.0.2
+  panda_map: 
+    git: https://github.com/dttrung-99931/PandaMap.git
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+
+dependency_overrides:
+  here_sdk:
+    path: pluggins/heresdk-explore-flutter
 
 flutter:
   uses-material-design: true

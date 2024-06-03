@@ -6,9 +6,9 @@ import 'package:panshop_driver/shared/widgets/common/card_icon.dart';
 
 class MainBottomNavBar extends StatelessWidget {
   const MainBottomNavBar({
-    Key? key,
+    super.key,
     required this.selectedIndexNotifier,
-  }) : super(key: key);
+  });
   final ValueNotifier<int> selectedIndexNotifier;
   int get _selectIndex => selectedIndexNotifier.value;
   set _selectIndex(value) => selectedIndexNotifier.value = value;
@@ -29,14 +29,12 @@ class MainBottomNavBar extends StatelessWidget {
                 ),
                 BottomNavigationBarItem(
                   backgroundColor: Colors.white,
-                  icon: CardIcon.smallPadding(Icons.notifications_outlined,
-                      size: 24.r),
+                  icon: CardIcon.smallPadding(Icons.notifications_outlined, size: 24.r),
                   label: "Thông báo",
                 ),
                 BottomNavigationBarItem(
                   backgroundColor: Colors.white,
-                  icon: CardIcon.smallPadding(Icons.account_box_outlined,
-                      size: 24.r),
+                  icon: CardIcon.smallPadding(Icons.account_box_outlined, size: 24.r),
                   label: "Tài khoản",
                 ),
               ],
