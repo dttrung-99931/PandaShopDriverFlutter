@@ -3,7 +3,6 @@ import 'package:panshop_driver/features/auth/delivery/delivery_binding.dart';
 import 'package:panshop_driver/features/auth/login/login_route.dart';
 import 'package:panshop_driver/features/home/home_binding.dart';
 import 'package:panshop_driver/features/main/main_screen.dart';
-import 'package:panshop_driver/features/map/map_binding.dart';
 
 final mainRoute = GetPage(
   name: MainScreen.route,
@@ -11,7 +10,6 @@ final mainRoute = GetPage(
   bindings: [
     HomeBinding(),
     DeliveryBinding(),
-    MapBinding(),
     LoginBinding(),
   ],
 );
