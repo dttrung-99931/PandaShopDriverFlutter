@@ -16,9 +16,10 @@ dependencies:
   flutter_screenutil: ^5.0.0+2
   dartz: ^0.10.1
   panda_map: 
-    git: https://github.com/dttrung-99931/PandaMap.git
+    #
   here_panda_map: 
-    git: https://github.com/dttrung-99931/HerePandaMap.git
+    # git: https://github.com/dttrung-99931/HerePandaMap.git
+    #
 
 dev_dependencies:
   flutter_test:

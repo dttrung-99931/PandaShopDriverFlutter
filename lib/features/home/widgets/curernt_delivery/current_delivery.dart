@@ -31,6 +31,7 @@ class CurrentDelivery extends BaseGetWidget<DeliveryController> {
           }
           return Column(
             children: [
+              h2sb,
               CurrentDeliveryInfo(currentDelivery: currentDelivery),
               h2sb,
               CurrentDeliveryActions(currentDelivery: currentDelivery)
