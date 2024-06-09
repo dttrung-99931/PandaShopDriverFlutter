@@ -17,7 +17,6 @@ import 'package:panshop_driver/global_binding.dart';
 void startApp() {
   // Run app in a zooned guarded to catch global exceptions
   runZonedGuarded(() async {
-    WidgetsFlutterBinding.ensureInitialized();
     await setup();
     runApp(App(initialRoute: inititalRoute));
   }, (error, stacktrace) {
