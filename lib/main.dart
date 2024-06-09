@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:here_panda_map/here_map_options.dart';
 import 'package:here_panda_map/here_panda_map_pluggin.dart';
 import 'package:panda_map/panda_map.dart';
@@ -11,6 +12,7 @@ void main() async {
 }
 
 Future<void> configDev() async {
+  WidgetsFlutterBinding.ensureInitialized();
   AppConfig.set(
     apiUrl: 'http://localhost:44444',
     flavor: AppFlavor.dev,
