@@ -2,8 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:panshop_driver/core/constants/app_colors.dart';
 import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
+import 'package:panshop_driver/core/utils/extension/list_extension.dart';
+import 'package:panshop_driver/features/auth/delivery/controllers/models/address_model.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/models/delivery_model.dart';
 import 'package:panshop_driver/shared/widgets/common/icon_title.dart';
+import 'package:panshop_driver/shared/widgets/layout/spacing_column.dart';
 
 class DeliveryItem extends StatelessWidget {
   const DeliveryItem({
@@ -29,10 +32,14 @@ class DeliveryItem extends StatelessWidget {
             icon: Icons.timer_outlined,
             title: delivery.estimtatedPickUpDuration,
           ),
-          h4sb,
-          IconTitle(
-            icon: Icons.location_on_outlined,
-            title: delivery.address.adddress,
+          SpacingColumn(
+            spacing: h4,
+            children: delivery.deliveryLocations.mapList(
+              (AddressModel address) => IconTitle(
+                icon: Icons.location_on_outlined,
+                title: address.adddress,
+              ),
+            ),
           ),
         ],
       ),

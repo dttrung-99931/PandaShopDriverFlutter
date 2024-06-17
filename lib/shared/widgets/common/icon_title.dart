@@ -23,7 +23,14 @@ class IconTitle extends StatelessWidget {
       children: [
         Icon(icon, size: iconSize),
         w4sb,
-        Text(title, style: textTheme.labelMedium?.withSize(labelFontSize)),
+        Expanded(
+          child: Text(
+            title,
+            style: textTheme.labelMedium?.withSize(labelFontSize),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
       ],
     );
   }
