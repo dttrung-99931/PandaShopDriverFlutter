@@ -1,25 +1,25 @@
 import 'dart:convert';
 
-import 'package:panshop_driver/features/auth/delivery/services/dtos/address_response.dart';
+import 'package:panshop_driver/features/auth/delivery/services/dtos/delivery_location_response.dart';
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class DeliveryResponseDto {
-  final int id;
-  final AddressResponseDto address;
-  final DateTime? finishedAt;
-  final DateTime? startedAt;
   // final DeliveryStatus startedAt;
   DeliveryResponseDto({
     required this.id,
-    required this.address,
+    required this.deliveryLocations,
     this.finishedAt,
     this.startedAt,
   });
+  final int id;
+  final List<DeliveryLocationDto> deliveryLocations;
+  final DateTime? finishedAt;
+  final DateTime? startedAt;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
-      'address': address.toMap(),
+      'deliveryLocations': deliveryLocations.map((x) => x.toMap()).toList(),
       'finishedAt': finishedAt?.millisecondsSinceEpoch,
       'startedAt': startedAt?.millisecondsSinceEpoch,
     };
@@ -28,14 +28,15 @@ class DeliveryResponseDto {
   factory DeliveryResponseDto.fromMap(Map<String, dynamic> map) {
     return DeliveryResponseDto(
       id: map['id'] as int,
-      address:
-          AddressResponseDto.fromMap(map['address'] as Map<String, dynamic>),
-      finishedAt: map['finishedAt'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(map['finishedAt'] as int)
-          : null,
-      startedAt: map['startedAt'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(map['startedAt'] as int)
-          : null,
+      deliveryLocations: List<DeliveryLocationDto>.from(
+        (map['deliveryLocations'] as List<dynamic>).map<DeliveryLocationDto>(
+          (x) => DeliveryLocationDto.fromMap(x as Map<String, dynamic>),
+        ),
+      ),
+      finishedAt:
+          map['finishedAt'] != null ? DateTime.parse(map['finishedAt']) : null,
+      startedAt:
+          map['startedAt'] != null ? DateTime.parse(map['startedAt']) : null,
     );
   }
 

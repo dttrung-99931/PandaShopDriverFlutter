@@ -1,26 +1,28 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:panshop_driver/core/utils/extension/list_extension.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/models/address_model.dart';
 import 'package:panshop_driver/features/auth/delivery/services/dtos/delivery_response.dart';
 
 class DeliveryModel {
   DeliveryModel({
     required this.id,
-    required this.address,
+    required this.deliveryLocations,
     required this.finishedAt,
     required this.startedAt,
   });
   factory DeliveryModel.fromDto(DeliveryResponseDto dto) {
     return DeliveryModel(
       id: dto.id,
-      address: AddressModel.fromDto(dto.address),
+      deliveryLocations: dto.deliveryLocations
+          .mapList((location) => AddressModel.fromDto(location.address)),
       finishedAt: dto.finishedAt,
       startedAt: dto.startedAt,
     );
   }
 
   final int id;
-  final AddressModel address;
+  final List<AddressModel> deliveryLocations;
   final DateTime? finishedAt;
   final DateTime? startedAt;
   // final DeliveryStatus startedAt;
