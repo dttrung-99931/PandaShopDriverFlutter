@@ -15,6 +15,7 @@ class CurrentDeliveryActions extends StatelessWidget {
   });
 
   final CurrentDeliveryModel currentDelivery;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -46,7 +47,10 @@ class CurrentDeliveryActions extends StatelessWidget {
               size: 22,
             ),
             onPressed: () {
-              Get.toNamed(MapScreen.router);
+              Get.toNamed(
+                MapScreen.router,
+                arguments: MapScreenArgs(currentDelivery: currentDelivery),
+              );
             },
           ),
         ),

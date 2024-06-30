@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:panshop_driver/core/constants/app_colors.dart';
 import 'package:panshop_driver/core/constants/themes.dart';
-import 'package:panshop_driver/core/utils/ui_utils.dart';
+import 'package:panshop_driver/core/utils/snack_utils.dart';
 import 'package:panshop_driver/features/auth/login/controllers/login_controller.dart';
 import 'package:panshop_driver/features/auth/login/screens/login_screen.dart';
 import 'package:panshop_driver/shared/widgets/common/unregister_widget.dart';

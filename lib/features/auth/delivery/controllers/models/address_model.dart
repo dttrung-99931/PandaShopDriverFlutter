@@ -10,6 +10,8 @@ class AddressModel {
     required this.communeOrWard,
     required this.streetAndHouseNum,
     required this.id,
+    required this.lat,
+    required this.long,
   });
   final String provinceOrCity;
   final String provinceOrCityCode;
@@ -18,6 +20,8 @@ class AddressModel {
   final String communeOrWard;
   final String streetAndHouseNum;
   final int id;
+  final double lat;
+  final double long;
 
   String get adddress {
     return '$provinceOrCity, $district, $communeOrWard, $streetAndHouseNum'
@@ -33,6 +37,8 @@ class AddressModel {
       communeOrWard: dto.communeOrWard,
       streetAndHouseNum: dto.streetAndHouseNum,
       id: dto.id,
+      lat: dto.lat,
+      long: dto.long,
     );
   }
 }
