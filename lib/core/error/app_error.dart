@@ -3,24 +3,37 @@ import 'package:panshop_driver/core/utils/log.dart';
 
 class AppError {
   final String message;
+  final Object? exception;
   AppError({
     required this.message,
+    this.exception,
   });
 
-  void log({StackTrace? moreDetailedStackTrace}) {
+  void log() {
     loge('  Error');
     loge('    $runtimeType $message');
 
     // Log calling method
-    List<String> stackTraces = (moreDetailedStackTrace ?? StackTrace.current).toString().split('\n');
+    List<String> stackTraces =
+        (getStackTrace() ?? StackTrace.current).toString().split('\n');
     loge('    ${stackTraces[0]}');
     loge('    ${stackTraces[1]}');
+  }
+
+  StackTrace? getStackTrace() {
+    try {
+      return (exception as dynamic)?.stackTrace;
+    } catch (e) {
+      return null;
+    }
   }
 }
 
 class UnexpectedAppError extends AppError {
-  final Object? exception;
-  UnexpectedAppError({required super.message, required this.exception});
+  UnexpectedAppError({
+    required super.message,
+    super.exception,
+  });
 }
 
 class ServerError extends AppError {
@@ -28,6 +41,7 @@ class ServerError extends AppError {
   ServerError({
     required super.message,
     required this.statusCode,
+    super.exception,
   });
 }
 

@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:panshop_driver/core/base/base_get_widget.dart';
-import 'package:panshop_driver/core/constants/constants.dart';
 import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
+import 'package:panshop_driver/core/constants/themes.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/delivery_controller.dart';
-import 'package:panshop_driver/features/auth/delivery/controllers/models/delivery_model.dart';
+import 'package:panshop_driver/features/auth/delivery/controllers/models/current_delivery_model.dart';
 import 'package:panshop_driver/features/home/widgets/curernt_delivery/widgets/current_delivery_actions.dart';
 import 'package:panshop_driver/features/home/widgets/curernt_delivery/widgets/current_delivery_info.dart';
 import 'package:panshop_driver/shared/widgets/common/section.dart';
@@ -25,9 +25,13 @@ class CurrentDelivery extends BaseGetWidget<DeliveryController> {
       contentPadding: EdgeInsets.symmetric(vertical: r4),
       child: Obx(
         () {
-          DeliveryModel? currentDelivery = controller.currentDelivery.value;
+          CurrentDeliveryModel? currentDelivery =
+              controller.currentDelivery.value;
           if (currentDelivery == null) {
-            return emptyWidget;
+            return Text(
+              'no_current_delivery'.tr,
+              style: textTheme.labelLarge,
+            );
           }
           return Column(
             children: [

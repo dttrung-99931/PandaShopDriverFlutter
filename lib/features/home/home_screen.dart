@@ -22,14 +22,17 @@ class HomeScreen extends BaseGetWidget<HomeController> {
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
-          Get.find<DeliveryController>().getUpconingDeliveries();
+          Get.find<DeliveryController>()
+            ..getUpconingDeliveries()
+            ..getCurrentDelivery();
         },
         child: SafeArea(
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
                 child: AppCard(
-                  padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
                   child: Row(
                     children: [
                       images.logo.build(height: h48),

@@ -20,15 +20,21 @@ class BaseController extends GetxController {
     _subscriptions.add(notifier.listen(onChanged));
   }
 
-  Future<void> showSnackbar(String message,
-      {String title = 'Thông báo'}) async {
-    showSnackbar(message, title: title);
+  Future<void> showSnackbar(
+    String message, {
+    String title = 'Thông báo',
+  }) async {
+    await Get.snackbar(
+      title,
+      message,
+      colorText: Colors.black,
+    ).future;
   }
 
   Future<void> handleServiceResult<Dto, Model>({
     required Future<Either<AppError, Dto>> serviceResult,
     required Function(Model result) onSuccess,
-    required Model Function(Dto dto) dtoToModel,
+    Model Function(Dto dto)? dtoToModel,
     Function(AppError result)? onError,
     bool handleLoading = true,
   }) async {
@@ -36,13 +42,15 @@ class BaseController extends GetxController {
     Either<AppError, Dto> result = await serviceResult;
     result.fold(
       onError ?? onErrorDefault,
-      (Dto data) => onSuccess(dtoToModel(data)),
+      (Dto data) => onSuccess(
+        dtoToModel != null ? dtoToModel(data) : data as Model,
+      ),
     );
     isLoading = false;
   }
 
-  void onErrorDefault(appError) {
-    showSnackbar(appError.message ?? 'Sth went wrong');
+  void onErrorDefault(AppError appError) {
+    showSnackbar(appError.message);
   }
 
   @override

@@ -5,7 +5,7 @@ import 'package:panshop_driver/core/constants/app_colors.dart';
 import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
 import 'package:panshop_driver/core/utils/extension/list_extension.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/models/address_model.dart';
-import 'package:panshop_driver/features/auth/delivery/controllers/models/delivery_model.dart';
+import 'package:panshop_driver/features/auth/delivery/controllers/models/current_delivery_model.dart';
 import 'package:panshop_driver/shared/widgets/common/icon_title.dart';
 import 'package:panshop_driver/shared/widgets/layout/spacing_column.dart';
 
@@ -15,7 +15,7 @@ class CurrentDeliveryInfo extends StatelessWidget {
     required this.currentDelivery,
   });
 
-  final DeliveryModel currentDelivery;
+  final CurrentDeliveryModel currentDelivery;
 
   @override
   Widget build(BuildContext context) {
