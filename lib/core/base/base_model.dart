@@ -17,14 +17,14 @@ class ResponseWrapper<T> {
 
   factory ResponseWrapper.dataObject({
     required Map<String, dynamic> responseJson,
-    required T Function(Map<String, dynamic> data) dataFromJson,
+    T Function(Map<String, dynamic> data)? dataFromJson,
   }) {
     return ResponseWrapper<T>(
       success: responseJson['success'],
       statusCode: responseJson['statusCode'],
       message: responseJson['message'],
       errorCode: responseJson['errorCode'],
-      data: responseJson['data'] != null
+      data: dataFromJson != null && responseJson['data'] != null
           ? responseJson['data'] is Map<String, dynamic>
               ? dataFromJson(responseJson['data'])
               : null

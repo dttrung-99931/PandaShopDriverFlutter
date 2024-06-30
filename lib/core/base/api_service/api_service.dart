@@ -40,7 +40,6 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
     String? contentType,
     Map<String, dynamic>? query,
     Decoder<T>? decoder,
-    bool requireNetwrok = true,
   }) async {
     var response = await super.get(
       url,
@@ -50,17 +49,12 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
       decoder: decoder,
     );
 
-    if (requireNetwrok && response.status.connectionError) {
-      throw NoInternetException();
-    }
-
     return response;
   }
 
   Future<Either<AppError, T>> handleResponse<T>({
     required Future<Response<ResponseWrapper<T>>> responseFuture,
     bool requireNetwrok = true,
-    bool allowSuccessNullBody = false,
   }) async {
     Response<ResponseWrapper<T>>? response;
 
@@ -69,8 +63,10 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
     } catch (e) {
       logd(e);
       return Left(
-        UnexpectedAppError(message: 'Xảy ra lỗi trong quá trình xử lý', exception: e)
-          ..log(moreDetailedStackTrace: (e as dynamic)?.stackTrace),
+        UnexpectedAppError(
+          message: 'Xảy ra lỗi trong quá trình xử lý',
+          exception: e,
+        )..log(),
       );
     }
 
@@ -78,8 +74,7 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
       return Left(NetworkError());
     }
 
-    if (Constants.sucessfulStatusCodes.contains(response.statusCode) &&
-        (allowSuccessNullBody || response.body?.data != null)) {
+    if (Constants.sucessfulStatusCodes.contains(response.statusCode)) {
       return Right(response.body?.data as T);
     }
     loge(
