@@ -9,6 +9,9 @@ class AddressResponseDto {
   final String communeOrWard;
   final String streetAndHouseNum;
   final int id;
+  final double lat;
+  final double long;
+
   AddressResponseDto({
     required this.provinceOrCity,
     required this.provinceOrCityCode,
@@ -17,6 +20,8 @@ class AddressResponseDto {
     required this.communeOrWard,
     required this.streetAndHouseNum,
     required this.id,
+    required this.lat,
+    required this.long,
   });
 
   Map<String, dynamic> toMap() {
@@ -28,6 +33,8 @@ class AddressResponseDto {
       'communeOrWard': communeOrWard,
       'streetAndHouseNum': streetAndHouseNum,
       'id': id,
+      'lat': lat,
+      'long': long,
     };
   }
 
@@ -40,6 +47,8 @@ class AddressResponseDto {
       communeOrWard: map['communeOrWard'] as String,
       streetAndHouseNum: map['streetAndHouseNum'] as String,
       id: map['id'] as int,
+      lat: map['lat'] as double,
+      long: map['long'] as double,
     );
   }
 
