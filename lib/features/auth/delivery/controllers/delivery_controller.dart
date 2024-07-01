@@ -16,6 +16,7 @@ class DeliveryController extends BaseController {
   void onInit() {
     super.onInit();
     getUpconingDeliveries();
+    getCurrentDelivery();
   }
 
   Future<void> getUpconingDeliveries() async {
