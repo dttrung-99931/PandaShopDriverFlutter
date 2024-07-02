@@ -5,4 +5,7 @@ const Map<String, String> en = {
   'address': 'Address',
   'remaining': 'Remaining',
   'no_current_delivery': 'No delivery',
+  // Login
+  'login_secsion_expired': 'Secsion was expired, please login again!',
+  'login_failed': 'Login failed',
 };

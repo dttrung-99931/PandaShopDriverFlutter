@@ -6,8 +6,8 @@ import 'package:panshop_driver/core/constants/constants.dart';
 import 'package:panshop_driver/core/constants/diemsions/size_extensions.dart';
 import 'package:panshop_driver/core/constants/themes.dart';
 import 'package:panshop_driver/core/utils/extension/ui_extensions.dart';
+import 'package:panshop_driver/global.dart';
 import 'package:panshop_driver/shared/widgets/common/loading_widget.dart';
-
 
 class CustomButton extends StatelessWidget {
   final String? label;
@@ -29,7 +29,7 @@ class CustomButton extends StatelessWidget {
   final bool isLoading;
 
   const CustomButton({
-    Key? key,
+    super.key,
     this.label,
     this.child,
     this.onPressed,
@@ -37,7 +37,7 @@ class CustomButton extends StatelessWidget {
     this.borderRadius = 6,
     this.elevation = 5,
     this.backgroundColor = AppColors.primary,
-    this.loadingColor = AppColors.primary,
+    this.loadingColor = AppColors.white,
     this.padding = const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32),
     this.margin = EdgeInsets.zero,
     this.titleFontSize = 14,
@@ -47,8 +47,8 @@ class CustomButton extends StatelessWidget {
     this.height,
     this.isTitleBold = false,
     this.isLoading = false,
-  })  : assert((label != null) != (child != null), 'Either title or child must be not null'),
-        super(key: key);
+  }) : assert((label != null) != (child != null),
+            'Either title or child must be not null');
 
   @override
   Widget build(BuildContext context) {
@@ -76,12 +76,15 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: !isLoading && onPressed != null
             ? () {
+                Global.unfocusCurrent();
                 onPressed?.call();
               }
             : null,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius),
+          ),
           padding: padding,
           elevation: elevation,
         ),
@@ -92,11 +95,17 @@ class CustomButton extends StatelessWidget {
             if (icon != null) icon!,
             if (icon != null) iconSpacing.swb,
             isLoading
-                ? Stack(
-                    children: [
-                      buttonContent,
-                      Positioned.fill(child: LoadingWidget(size: 24.r, color: loadingColor)),
-                    ],
+                ? Expanded(
+                    child: Stack(
+                      // buttonContent can be emptyWidget, so stack need to expaned so that loading can showing
+                      fit: StackFit.expand,
+                      children: [
+                        buttonContent,
+                        Positioned.fill(
+                          child: LoadingWidget(size: 20.r, color: loadingColor),
+                        ),
+                      ],
+                    ),
                   )
                 : buttonContent,
           ],

@@ -3,7 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:panshop_driver/core/constants/app_colors.dart';
 
 class LoadingWidget extends StatelessWidget {
-  const LoadingWidget({this.size = 20, this.color = AppColors.primary, Key? key}) : super(key: key);
+  const LoadingWidget({
+    this.size = 20,
+    this.color = AppColors.primary,
+    super.key,
+  });
 
   final double? size;
   final Color? color;
@@ -15,7 +19,7 @@ class LoadingWidget extends StatelessWidget {
         dimension: size,
         child: CircularProgressIndicator(
           color: color,
-          strokeWidth: 1.8.w,
+          strokeWidth: 1.4.w,
         ),
       ),
     );

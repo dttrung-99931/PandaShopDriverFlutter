@@ -5,6 +5,10 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:panshop_driver/core/utils/snack_utils.dart';
+import 'package:panshop_driver/features/auth/login/controllers/login_controller.dart';
+import 'package:panshop_driver/features/auth/login/screens/login_screen.dart';
+import 'package:panshop_driver/main_controller.dart';
 
 class BaseController extends GetxController {
   final _isLoading = false.obs;
@@ -18,17 +22,6 @@ class BaseController extends GetxController {
   /// and keep the subscription of listening to cancel when controller disposed
   void listen<T>(RxNotifier<T> notifier, Function(T) onChanged) {
     _subscriptions.add(notifier.listen(onChanged));
-  }
-
-  Future<void> showSnackbar(
-    String message, {
-    String title = 'Thông báo',
-  }) async {
-    await Get.snackbar(
-      title,
-      message,
-      colorText: Colors.black,
-    ).future;
   }
 
   Future<void> handleServiceResult<Dto, Model>({
@@ -50,6 +43,12 @@ class BaseController extends GetxController {
   }
 
   void onErrorDefault(AppError appError) {
+    // Hanlde token expired error
+    if (appError is ServerError && appError.statusCode == 401) {
+      Get.find<MainController>().onTokenExpired();
+      return;
+    }
+
     showSnackbar(appError.message);
   }
 
