@@ -151,7 +151,7 @@ class _Item extends StatelessWidget {
             spacing: 16.w,
             children: [
               icon,
-              Expanded(child: Text(title, style: textTheme.bodyMedium)),
+              Expanded(child: Text(title, style: textTheme.bodySmall)),
               const Icon(Icons.chevron_right_outlined),
             ],
           ),
