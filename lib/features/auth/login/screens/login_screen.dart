@@ -17,7 +17,7 @@ class LoginScreen extends BaseGetWidget<LoginController> {
   LoginScreen({super.key});
   static const route = '/login';
   final phoneController = TextEditingController(
-    text: AppConfig.config.isDebug ? '0888202079' : null,
+    text: AppConfig.config.isDebug ? '0988202020' : null,
   );
   final passwordController = TextEditingController(
     text: AppConfig.config.isDebug ? 'aa123456' : null,
