@@ -8,4 +8,6 @@ const Map<String, String> en = {
   // Login
   'login_secsion_expired': 'Secsion was expired, please login again!',
   'login_failed': 'Login failed',
+  // Map
+  'cannot_get_current_location': 'Cannot get your current location',
 };

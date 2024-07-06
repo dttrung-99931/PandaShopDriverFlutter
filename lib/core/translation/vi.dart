@@ -8,4 +8,6 @@ const Map<String, String> vi = {
   // Auth
   'login_secsion_expired': 'Phiên đăng nhập hết hạn, vui lòng đăng nhập lại!',
   'login_failed': 'Đăng nhập thát bại!',
+  // Map
+  'cannot_get_current_location': 'Không thể lấy vị trí hiện tại!',
 };
