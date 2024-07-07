@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:here_panda_map/here_map_options.dart';
 import 'package:here_panda_map/here_panda_map_pluggin.dart';
 import 'package:panda_map/panda_map.dart';
+import 'package:panda_map/panda_map_ui_options.dart';
 import 'package:panshop_driver/config/app_config.dart';
+import 'package:panshop_driver/core/constants/app_colors.dart';
 
 import 'app.dart';
 
@@ -19,11 +21,14 @@ Future<void> configDev() async {
   );
   await PandaMap.initialize(
     plugin: HerePandaMapPluggin(
-      options: HerePandaMapOptions(
-        mapAPIKey:
-            'bb6rs_Rbb7Vz0qOXSaF_CnVL7Z3rJ53N4uJ8-fUjEM-TBSGPU6hUsWxAocMuZ1cB57oJ_v8QaXpdWEmKVCgNFg',
-        mapAPIKeyId: 'GWunhRPgdFdBJcKsfrCaqg',
-      ),
-    ),
+        options: HerePandaMapOptions(
+          mapAPIKey:
+              'bb6rs_Rbb7Vz0qOXSaF_CnVL7Z3rJ53N4uJ8-fUjEM-TBSGPU6hUsWxAocMuZ1cB57oJ_v8QaXpdWEmKVCgNFg',
+          mapAPIKeyId: 'GWunhRPgdFdBJcKsfrCaqg',
+        ),
+        uiOptions: const MapUIOptions(
+          iconColor: AppColors.primary,
+          routeColor: AppColors.primary,
+        )),
   );
 }
