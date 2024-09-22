@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:here_panda_map/controller/here_panda_map_controller.dart';
 import 'package:panda_map/core/models/map_location.dart';
 import 'package:panda_map/core/models/map_route.dart';
 import 'package:panda_map/panda_map.dart';
@@ -10,7 +11,14 @@ import 'package:panshop_driver/features/auth/delivery/controllers/models/current
 import '../../../core/base/base_controller.dart';
 
 class MapController extends BaseController {
-  final pandaMapController = PandaMap.controller;
+  Future<void> init(CurrentDeliveryModel currentDelivery) async {
+    isLoading = true;
+    // Wait until map created
+    await (PandaMap.controller as HerePandaMapController)
+        .waitToLoadMapSenseComplete;
+    await initDeliveryRoute(currentDelivery);
+    isLoading = false;
+  }
 
   Future<void> initDeliveryRoute(CurrentDeliveryModel currentDelivery) async {
     // TODO:
@@ -25,15 +33,28 @@ class MapController extends BaseController {
       return;
     }
 
-    MapRoute? route = await PandaMap.routingController.findRoute(
-      start: current,
-      dest: dest,
-    );
+    MapRoute? route;
+    try {
+      route = await PandaMap.routingController.findRoute(
+        start: current,
+        dest: dest,
+      );
+    } catch (e) {
+      showSnackbar("Got an error when finding route");
+      loge(e);
+    }
 
     if (route != null) {
-      PandaMap.routingController.showRoute(route);
+      await PandaMap.routingController.showRoute(route);
+      await PandaMap.routingController.startNavigation(route);
     } else {
       loge('Cannot find route');
     }
+  }
+
+  @override
+  void onClose() {
+    // PandaMap.dispose();
+    super.onClose();
   }
 }
