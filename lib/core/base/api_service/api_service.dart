@@ -20,6 +20,7 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
     // TODO: get from config
     baseUrl = AppConfig.config.apiUrl;
     allowAutoSignedCert = true;
+    timeout = Constants.apiSecondsTimeout;
     httpClient.addAuthenticator<dynamic>(
       (request) async {
         request.headers['Authorization'] = 'Bearer ${_storage.token}';
@@ -27,7 +28,6 @@ abstract class ApiService extends ApiServiceLogger implements GetxService {
       },
     );
   }
-
   final Storage _storage = Get.find();
 
   /// Http Get method

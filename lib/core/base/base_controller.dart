@@ -1,13 +1,11 @@
 import 'dart:async';
 
-import 'package:panshop_driver/core/error/app_error.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:panshop_driver/core/error/app_error.dart';
 import 'package:panshop_driver/core/utils/snack_utils.dart';
-import 'package:panshop_driver/features/auth/login/controllers/login_controller.dart';
-import 'package:panshop_driver/features/auth/login/screens/login_screen.dart';
 import 'package:panshop_driver/main_controller.dart';
 
 class BaseController extends GetxController {
@@ -53,10 +51,10 @@ class BaseController extends GetxController {
   }
 
   @override
-  void dispose() {
+  void onClose() {
     for (StreamSubscription element in _subscriptions) {
       element.cancel();
     }
-    super.dispose();
+    super.onClose();
   }
 }
