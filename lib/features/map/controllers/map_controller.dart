@@ -46,7 +46,6 @@ class MapController extends BaseController {
 
     if (route != null) {
       await PandaMap.routingController.showRoute(route);
-      await PandaMap.routingController.startNavigation(route);
     } else {
       loge('Cannot find route');
     }
