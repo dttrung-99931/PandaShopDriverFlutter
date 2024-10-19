@@ -10,4 +10,8 @@ const Map<String, String> en = {
   'login_failed': 'Login failed',
   // Map
   'cannot_get_current_location': 'Cannot get your current location',
+  // Delivery overview
+  'ship_order_info': 'Ship order information',
+  'mins': 'mins',
+  'hours': 'hours',
 };

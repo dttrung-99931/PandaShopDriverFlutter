@@ -10,4 +10,8 @@ const Map<String, String> vi = {
   'login_failed': 'Đăng nhập thát bại!',
   // Map
   'cannot_get_current_location': 'Không thể lấy vị trí hiện tại!',
+  // Delivery overview
+  'ship_order_info': 'Thông tin đơn vận',
+  'mins': 'phút',
+  'hours': 'giờ',
 };
