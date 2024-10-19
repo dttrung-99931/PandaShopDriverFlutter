@@ -32,7 +32,7 @@ class UpcomingDeliveryList extends BaseGetWidget<DeliveryController> {
               List<DeliveryModel> deliveries = controller.deliveries;
               return deliveries.isNotEmpty
                   ? SizedBox(
-                      height: 0.28.sh,
+                      height: 0.4.sh,
                       child: Scrollbar(
                         controller: scrollController,
                         thumbVisibility: true,
@@ -41,7 +41,8 @@ class UpcomingDeliveryList extends BaseGetWidget<DeliveryController> {
                           padding: EdgeInsets.zero,
                           itemCount: controller.deliveries.length,
                           itemBuilder: (context, index) {
-                            return DeliveryItem(delivery: controller.deliveries[index]);
+                            return DeliveryItem(
+                                delivery: controller.deliveries[index]);
                           },
                           separatorBuilder: (BuildContext context, int index) {
                             return h8sb;

@@ -8,5 +8,4 @@ class MapBinding extends Bindings {
     Get.lazyPut(() => MapService());
     Get.lazyPut(() => MapController());
   }
-
 }
