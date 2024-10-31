@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:panda_map/panda_map_widget.dart';
+import 'package:panda_map/widgets/panda_map_listener.dart';
 import 'package:panshop_driver/core/base/loading_obx.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/models/current_delivery_model.dart';
 import 'package:panshop_driver/features/map/controllers/map_controller.dart';
@@ -39,7 +40,12 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          PandaMapWidget(),
+          PandaMapListener(
+            onMoving: (location) {
+              controller.onMoving(location);
+            },
+            child: PandaMapWidget(),
+          ),
           LoadingObx(
             controller: controller,
             builder: () => const SizedBox(),

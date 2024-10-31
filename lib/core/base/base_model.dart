@@ -15,6 +15,10 @@ class ResponseWrapper<T> {
     required this.data,
   });
 
+  factory ResponseWrapper.emptyResponse(dynamic response) {
+    return ResponseWrapper.dataObject(responseJson: response);
+  }
+
   factory ResponseWrapper.dataObject({
     required Map<String, dynamic> responseJson,
     T Function(Map<String, dynamic> data)? dataFromJson,
