@@ -5,7 +5,7 @@ import 'package:panshop_driver/features/map/map_service.dart';
 class MapBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => MapService());
-    Get.lazyPut(() => MapController());
+    Get.lazyPut(() => DriverMapService());
+    Get.lazyPut(() => MapController(service: Get.find()));
   }
 }
