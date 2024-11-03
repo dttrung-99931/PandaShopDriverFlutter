@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:get/get.dart';
 import 'package:here_panda_map/controller/here_panda_map_controller.dart';
 import 'package:panda_map/core/models/map_current_location.dart';
@@ -11,7 +9,7 @@ import 'package:panshop_driver/core/utils/log.dart';
 import 'package:panshop_driver/core/utils/snack_utils.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/models/address_model.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/models/current_delivery_model.dart';
-import 'package:panshop_driver/features/auth/delivery/services/dtos/delivery_tracking_request.dart';
+import 'package:panshop_driver/features/auth/delivery/services/dtos/delivery_progress_request.dart';
 import 'package:panshop_driver/features/map/map_service.dart';
 
 import '../../../core/base/base_controller.dart';
@@ -22,7 +20,6 @@ class MapController extends BaseController {
   }) : _service = service;
   final DriverMapService _service;
   CurrentDeliveryModel? _currentDeliveryModel;
-  final Queue<MapCurrentLocation> _locationTrackQueue = Queue();
 
   Future<void> init(CurrentDeliveryModel currentDelivery) async {
     _currentDeliveryModel = currentDelivery;
@@ -65,44 +62,47 @@ class MapController extends BaseController {
     }
   }
 
-  DateTime? _updateTrackingDate;
-  bool _isCreatingTracking = false;
+  DateTime? _updateDate;
 
-  Future<void> onMoving(MapCurrentLocation location) async {
+  // Update delivery progress on driver moving
+  Future<void> onMoving(MapCurrentLocation location, MapRoute currentRoute,
+      int remainingLengthInMetter) async {
     // Return if less than 3 secs from the last update delivery
-    if (_updateTrackingDate != null &&
-        DateTime.now().difference(_updateTrackingDate!).inSeconds <
+    if (_updateDate != null &&
+        DateTime.now().difference(_updateDate!).inSeconds <
             Constants.delvieryTrackingSecInterval) {
       return;
     }
 
-    // Add queue if tracking is creating
-    if (_isCreatingTracking) {
-      _locationTrackQueue.addFirst(location);
-      logd("Add queue, size = ${_locationTrackQueue.length}");
-      return;
-    }
+    // Update delivery progress
+    await _updateRouteProgress(
+      currentRoute: currentRoute,
+      remainingLengthInMetter: remainingLengthInMetter,
+      currentLocation: location,
+    );
+  }
 
-    // create tracking
-    _isCreatingTracking = true;
-    _updateTrackingDate = DateTime.now();
+  Future<void> _updateRouteProgress({
+    required MapRoute currentRoute,
+    required int remainingLengthInMetter,
+    required MapCurrentLocation currentLocation,
+  }) async {
+    _updateDate = DateTime.now();
     // TODO: handle subsequental
     await handleServiceResult(
-      serviceResult: _service.createDelvieryTracking(
+      serviceResult: _service.updateDeliveryProgress(
         deliveryId: _currentDeliveryModel!.id,
-        requestModel: DeliveryTrackingRequestDto.fromCurrentLocation(location),
+        requestModel: DeliveryProgressRequestDto(
+          distanceInMetter: currentRoute.lengthInMeters,
+          remainingDistance: remainingLengthInMetter,
+          durationInMinute: currentRoute.durationInMinutes,
+          driverLat: currentLocation.lat,
+          driverLong: currentLocation.long,
+          driverBearingInDegree: currentLocation.bearingDegrees,
+        ),
       ),
       onSuccess: (result) {},
     );
-    _isCreatingTracking = false;
-
-    // hanlde creating next tracking from queue
-    if (_locationTrackQueue.isNotEmpty) {
-      MapCurrentLocation next = _locationTrackQueue.last;
-      _locationTrackQueue.removeLast();
-      logd("Remove queue, size = ${_locationTrackQueue.length}");
-      onMoving(next);
-    }
   }
 
   @override
