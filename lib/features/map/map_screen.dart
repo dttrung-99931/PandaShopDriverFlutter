@@ -41,9 +41,7 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           PandaMapListener(
-            onMoving: (location) {
-              controller.onMoving(location);
-            },
+            onMoving: controller.onMoving,
             child: PandaMapWidget(),
           ),
           LoadingObx(
