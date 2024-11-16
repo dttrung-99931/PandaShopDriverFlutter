@@ -7,3 +7,10 @@ String formatHourMin(int durationInMinutes) {
     return '${minues}m';
   }
 }
+
+String formatMovingDistance(int totalMetters, remainingMetters) {
+  String totalKms = (totalMetters / 1000).toStringAsFixed(1);
+  String passedKms =
+      ((totalMetters - remainingMetters) / 1000).toStringAsFixed(1);
+  return '$passedKms / ${totalKms}km';
+}
