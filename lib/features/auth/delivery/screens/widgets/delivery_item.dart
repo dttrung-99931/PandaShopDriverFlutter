@@ -6,6 +6,7 @@ import 'package:panshop_driver/core/constants/diemsions/dimensions.dart';
 import 'package:panshop_driver/core/utils/extension/list_extension.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/delivery_controller.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/models/address_model.dart';
+import 'package:panshop_driver/features/auth/delivery/controllers/models/current_delivery_model.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/models/delivery_model.dart';
 import 'package:panshop_driver/features/auth/delivery/screens/delivery_overveiw_bottom_sheet.dart';
 import 'package:panshop_driver/shared/widgets/common/app_icon_button.dart';
@@ -26,7 +27,10 @@ class DeliveryItem extends StatelessWidget {
       onTap: () {
         Get.toNamed(
           '${Get.currentRoute}/${DeliveryOverviewBottomSheetScreen.router}',
-          arguments: DeliveryOverviewBottomSheetArgs(delivery: delivery),
+          arguments: DeliveryOverviewBottomSheetArgs(
+            currentDelivery:
+                CurrentDeliveryModel.fromDelvieryWithZeroProgress(delivery),
+          ),
         );
       },
       child: Container(

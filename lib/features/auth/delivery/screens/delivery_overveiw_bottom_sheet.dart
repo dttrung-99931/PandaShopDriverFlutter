@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:panda_map/core/models/map_route.dart';
 import 'package:panda_map/panda_map.dart';
@@ -8,16 +7,14 @@ import 'package:panda_map/panda_map_widget.dart';
 import 'package:panshop_driver/core/constants/app_colors.dart';
 import 'package:panshop_driver/core/utils/format_utils.dart';
 import 'package:panshop_driver/features/auth/delivery/controllers/models/current_delivery_model.dart';
-import 'package:panshop_driver/features/auth/delivery/controllers/models/delivery_model.dart';
 import 'package:panshop_driver/features/map/controllers/map_controller.dart';
 import 'package:panshop_driver/shared/widgets/common/icon_title.dart';
 import 'package:panshop_driver/shared/widgets/common/loading_widget.dart';
-import 'package:panshop_driver/shared/widgets/layout/spacing_column.dart';
 
 class DeliveryOverviewBottomSheetArgs {
-  final DeliveryModel delivery;
+  final CurrentDeliveryModel currentDelivery;
   DeliveryOverviewBottomSheetArgs({
-    required this.delivery,
+    required this.currentDelivery,
   });
 }
 
@@ -42,7 +39,7 @@ class _DeliveryOverviewBottomSheetScreenState
 
   @override
   void initState() {
-    _controller.init(CurrentDeliveryModel.fromDelivery(widget.args.delivery));
+    _controller.init(widget.args.currentDelivery);
     _animController = BottomSheet.createAnimationController(
       this,
       sheetAnimationStyle: AnimationStyle(
