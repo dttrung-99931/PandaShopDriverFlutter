@@ -23,8 +23,8 @@ Future<void> configDev() async {
     plugin: HerePandaMapPluggin(
         options: HerePandaMapOptions(
           mapAPIKey:
-              'bb6rs_Rbb7Vz0qOXSaF_CnVL7Z3rJ53N4uJ8-fUjEM-TBSGPU6hUsWxAocMuZ1cB57oJ_v8QaXpdWEmKVCgNFg',
-          mapAPIKeyId: 'GWunhRPgdFdBJcKsfrCaqg',
+              'AJwfowNJH8skkgjVVaQ7QlUIgiFqlH8-hSTaJJP4_-_1p3d4007ktf9yeDGzdOE58ZJcD67y8gAPaNnZ1DqTtA',
+          mapAPIKeyId: 'r6zgCSmJPMvTWXpZU3cMrA',
         ),
         uiOptions: const MapUIOptions(
           iconColor: AppColors.primary,
