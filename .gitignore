@@ -45,3 +45,6 @@ app.*.map.json
 
 # Ignore here sdk pluggin because it's too large (>300MB)
 plugins/heresdk-explore-flutter/
+
+# FVM Version Cache
+.fvm/
