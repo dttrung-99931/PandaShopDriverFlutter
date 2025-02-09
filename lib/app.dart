@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,12 @@ void startApp() {
   // Run app in a zooned guarded to catch global exceptions
   runZonedGuarded(() async {
     await setup();
-    runApp(App(initialRoute: inititalRoute));
+    runApp(
+      DevicePreview(
+        enabled: false,
+        builder: (BuildContext context) => App(initialRoute: inititalRoute),
+      ),
+    );
   }, (error, stacktrace) {
     ExceptionHandler.handleAsyncError(error, stacktrace);
   });
